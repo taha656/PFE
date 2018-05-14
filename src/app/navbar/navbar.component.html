@@ -1,0 +1,119 @@
+<nav class="navbar navbar-subnav navbar-static-top" role="navigation">
+
+  <div class="container">
+
+
+    <div class="collapse navbar-collapse" id="subnav">
+
+      <ul class="nav navbar-nav hidden-xs navbar-right">
+        <li><a (click)="onLogout()">Logout  <i class="fa fa-fw icon-unlock-fill"></i></a></li>
+        <li class="dropdown notifications updates hidden-xs hidden-sm">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bell-o"></i>
+            <span class="badge badge-primary">{{getCount()}}</span>
+          </a>
+          <ul class="dropdown-menu" role="notification">
+            <li class="dropdown-header">Notifications</li>
+            <table>
+              <tr *ngFor="let p of notifications   ">
+
+              <li class="media">
+                <div class="pull-right">
+                  <span class="label label-success">New</span>
+                </div>
+                <div class="media-left">
+                  <img src="assets/images/people/50/guy-2.jpg" alt="people" class="img-circle" width="30">
+                </div>
+                <div class="media-body">
+                  <a href="#">{{p.collaborateur.email}}</a>{{p.details}}
+                  <br/>
+                  <span class="text-caption text-muted">{{p.date |date:'MM/dd/yyyy  h:mma'}}</span>
+                </div>
+              </li>
+              </tr>
+            </table>
+
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+
+  </div>
+</nav>
+
+<div class="cover profile">
+  <div class="wrapper">
+    <div class="image">
+      <img src="assets/images/profile-cover.jpg" alt="people" />
+    </div>
+    <ul class="friends">
+      <li>
+        <a href="#">
+          <img src="assets/images/people/110/guy-6.jpg" alt="people" class="img-responsive">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="assets/images/people/110/woman-3.jpg" alt="people" class="img-responsive">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="assets/images/people/110/guy-2.jpg" alt="people" class="img-responsive">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="assets/images/people/110/guy-9.jpg" alt="people" class="img-responsive">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="assets/images/people/110/woman-9.jpg" alt="people" class="img-responsive">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="assets/images/people/110/guy-4.jpg" alt="people" class="img-responsive">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="assets/images/people/110/guy-1.jpg" alt="people" class="img-responsive">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="assets/images/people/110/woman-4.jpg" alt="people" class="img-responsive">
+        </a>
+      </li>
+      <li><a href="#" class="group"><i class="fa fa-group"></i></a></li>
+    </ul>
+  </div>
+<div class="cover-info">
+  <div class="avatar">
+    <!--{{im}}-->
+    <!--<img src="data:image/jpg;{{im}}" alt="people" />-->
+    <!--<img src="{{im}}" alt="people" />-->
+    <div class="form-group" style="width: 100px ;height: 100px;">
+      <form-upload [user]="user"></form-upload>
+    </div>
+    <p>{{user.email}}</p>
+    <!--  <strong><h6> {{im.filename}}</h6>   </strong>-->
+  </div>
+  <!-- <table>
+     <div class="name">NOM:
+
+       <tr *ngFor="let c1 of coll"  >  <td>{{c1.email}}</td></tr></div></table>-->
+  <ul class="cover-nav">
+
+    <li><a href="user-public-timeline.html"><i class="fa fa-fw icon-ship-wheel"></i> Timeline</a></li>
+    <li><a (click)="onEditProfil()"><i class="fa fa-fw icon-user-1"></i> About</a></li>
+    <li><a (click)="inbox()"><i class="fa fa-fw fa-users"></i> Chat</a></li>
+
+
+  </ul>
+</div>
+</div>

@@ -1,0 +1,42 @@
+
+
+<div class="col-xs-12 col-md-8 col-lg-8 item">
+  <!-- Leaderboard -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">Les Utilisateurs qui publient le plus de publications &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        total</h4>
+
+    </div>
+    <table class="table table-leaderboard margin-none">
+      <tbody>
+
+
+        <tr *ngFor="let t of list1 ; let i=index">
+        <td width="20">{{i+1}}</td>
+        <td><a (click)="consulterProfil(t.collaborateur.email)"><i class="fa fa-flag text-muted"></i>{{t.collaborateur.email}}</a></td>
+          <td><span class="pull-right " ><strong>{{t.nbPublication}}</strong></span></td>
+      </tr>
+
+      </tbody>
+    </table>
+
+    <div class="panel-footer padding-none">
+      <div class="row">
+
+        <div class="col-sm-6 ">
+          <div class="score-block">
+            <div class="title ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Total publications</div>
+           <div class="score">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{total}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- // Leaderboard -->
+</div>
+

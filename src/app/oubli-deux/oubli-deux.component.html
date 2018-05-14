@@ -1,0 +1,26 @@
+<h1>Hr Access</h1>
+<div class="panel panel-default text-center">
+  <img src="assets/images/people/110/guy-5.jpg" class="img-circle">
+  <form #f="ngForm" (ngSubmit)="nouveauMotDePasse(f.value)">
+
+
+    <div class="form-group">
+      <div class="panel-body">
+        <input class="form-control" type="password" placeholder="nouveau mot de passe" ngModel="" name="password" >
+
+      </div>
+    </div>
+    f
+    <div class="form-group">
+      <div class="panel-body">
+        <input class="form-control" type="password" placeholder="confirmer nouveau mot de pase" ngModel="" name="confirmationMotDePasse" >
+
+      </div>
+    </div>
+
+
+    <button class="btn btn-primary" type="submit">Confirmer<i class="fa fa-fw fa-unlock-alt"></i></button>
+
+
+  </form>
+</div>

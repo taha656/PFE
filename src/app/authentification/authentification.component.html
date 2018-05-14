@@ -93,136 +93,44 @@ WARNING: Respond.js doesn't work if you view the page via file:// -->
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <div id="content">
-  <ul class="nav navbar-nav ">
-    <div class="st-container">
 
-      <!-- Fixed navbar -->
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a href="#sidebar-menu" data-toggle="sidebar-menu" class="toggle pull-left visible-xs"><i class="fa fa-bars"></i></a>
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
 
-            <a href="#sidebar-map" data-toggle="sidebar-menu" class="toggle pull-right visible-xs"><i class="fa fa-map-marker"></i></a>
+<app-register></app-register>
 
-            <a class="navbar-brand" href="index.html">ThemeKit</a>
-          </div>
 
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="main-nav">
-            <form class="navbar-form navbar-left margin-none">
-              <div class="search-1">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="icon-search"></i></span>
-                  <input type="text" class="form-control form-control-w-150" placeholder="Search ..">
-                </div>
-              </div>
-            </form>
 
-            <ul class="nav navbar-nav navbar-right">
-              <!-- Login -->
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-fw fa-lock"></i> Login
-                </a>
-                <div class="dropdown-menu dropdown-size-280">
 
-                    <div class="form-group">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <input type="text" class="form-control" placeholder="Username" name="emm">
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-shield"></i></span>
-                        <input type="password" class="form-control" placeholder="Password" name="pwd">
-                      </div>
-                    </div>
-                    <div class="text-center">
-                      <button type="submit"  class="btn btn-primary">Login </button>
-                    </div>
 
-                </div>
-              </li>
-              <!-- // END login -->
-              <!-- Sign up -->
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-fw fa-plus"></i> Sign Up
-                </a>
 
-                <div class="dropdown-menu dropdown-size-280">
-                  <form>
-                    <div class="row">
 
-                      <div class="col-md-6">
 
-                        <div >
-                          <label for="exampleInputFirstName">First name</label>
-                          <input type="text" [(ngModel)]="collaborateur.nom" class="form-control" id="exampleInputFirstName" placeholder="Your first name" name="nom">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div >
-                          <label for="exampleInputLastName">Last name</label>
-                          <input type="text" [(ngModel)]="collaborateur.prenom" class="form-control" id="exampleInputLastName" placeholder="Your last name" name="prenom">
-                        </div>
-                      </div>
-                    </div>
-                    <div >
-                      <label for="exampleInputEmail1">Email address</label>
-                      <input type="text" class="form-control" [(ngModel)]="collaborateur.email" id="exampleInputEmail1" placeholder="Enter email" name="email">
-                    </div>
-                    <div  >
 
-                      <label for="exampleInputPassword1">Password</label>
 
-                      <input type="text"   class="form-control" [(ngModel)]="collaborateur.password" id="exampleInputPassword1" placeholder="Password" name="password">
-                    </div>
-
-                </form>
-                  <button  (click)="saveRegistration(collaborateur.email)" type="submit" class="btn btn-primary">Submit</button>
-                </div>
-
-              </li>
-            </ul></div></div></div></div>
-  </ul>
   <div class="container-fluid">
+    <div  *ngIf="erreurDinsription==1">
+      <strong> erreur</strong>
+    </div>
 <div  *ngIf="mode==1">
   <strong> Bad credentiales...</strong>
 </div>
     <div *ngIf="mode==0">
     <div class="lock-container">
+      <div *ngIf="oubli==0">
 
-      <h1>Hr Access</h1>
-      <div class="panel panel-default text-center">
-        <img src="assets/images/people/110/guy-5.jpg" class="img-circle">
-        <form #f="ngForm" (ngSubmit)="onLogin(f.value)">
-        <div class="form-group">
-        <div class="panel-body">
-
-          <input class="form-control" placeholder="username" type="text"  ngModel="" name="email">
-        </div>
-        </div>
-          <div class="form-group">
-            <div class="panel-body">
-          <input class="form-control" type="password" placeholder="Password" ngModel="" name="password" >
-
-            </div>
-          </div>
-
-
-          <button class="btn btn-primary" type="submit">Login<i class="fa fa-fw fa-unlock-alt"></i></button>
-          <a href="#" class="forgot-password">Forgot password?</a>
-
-        </form>
+        <app-oubli-zero></app-oubli-zero>
       </div>
+      <div *ngIf="oubli==1">
+     <app-oubli-un></app-oubli-un>
+      </div>
+
+      <div *ngIf="oubli==2">
+
+        <app-oubli-deux></app-oubli-deux>
+
+      </div>
+
+
+
     </div>
     </div>
   </div>

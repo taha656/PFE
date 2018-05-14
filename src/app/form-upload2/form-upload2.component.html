@@ -1,0 +1,20 @@
+<!--<div *ngIf="profilephotoBase64" class="progress">-->
+<!--<div class="progress-bar progress-bar-info progress-bar-striped"-->
+<!--role="progressbar" attr.aria-valuenow="{{progress.percentage}}"-->
+<!--aria-valuemin="0" aria-valuemax="100"-->
+<!--[ngStyle]="{width:progress.percentage+'%'}">-->
+<!--{{progress.percentage}}%</div>-->
+<!--</div>-->
+<img src={{profilephotoBase64}} style="height: 90px;width: 90px" class="img-circle">
+<div class="image-upload2">
+  <label for="file-input">
+    <div class="pos">
+
+      <i class="fa fa-photo"></i>
+
+    </div>
+
+  </label>
+  <input type="file"  id="file-input" (change)="selectFile($event)" >
+
+</div>

@@ -1,0 +1,55 @@
+
+<form #f="ngForm" (ngSubmit)="ModifCol(f.value)">
+  <div class="panel panel-default">
+    <div class="panel-heading panel-heading-gray">
+      <a (click)="editCol()" class="btn btn-white btn-xs pull-right"><i class="fa fa-pencil"></i></a>
+      <i class="fa fa-fw fa-info-circle"></i> About2
+    </div>
+    <div class="panel-body">
+      <ul class="list-unstyled profile-about margin-none">
+
+
+
+
+
+        <li class="padding-v-5">
+          <div class="row">
+            <div class="col-sm-4"><span class="text-muted">Nom</span></div>
+            <input class="col-sm-8 form-control" value="{{coll.nom}}" [(ngModel)]="coll.nom" name="nom"/>
+          </div>
+        </li>
+
+        <li class="padding-v-5">
+          <div class="row">
+            <div class="col-sm-4"><span class="text-muted">Prenom</span></div>
+            <input class="col-sm-8 form-control" name="prenom" [(ngModel)]="coll.prenom" value={{coll.prenom}}/>
+          </div>
+        </li>
+        <li class="padding-v-5">
+          <div class="row">
+            <div class="col-sm-4"><span class="text-muted">Date de naissance</span></div>
+            <input class="col-sm-8 form-control" name="dateNaissance" [(ngModel)]="coll.dateNaissance" type="date" value={{coll.dateNaissance}}/>
+          </div>
+        </li>
+
+
+
+        <li class="padding-v-5">
+          <div class="row">
+            <div class="col-sm-4"><span class="text-muted"> Adress</span></div>
+            <input class="col-sm-8 form-control" type="text" name="adress" [(ngModel)]="coll.adress" value={{coll.adress}}/>
+          </div>
+        </li>
+        <li class="padding-v-5">
+          <div class="row">
+            <div class="col-sm-4"><span class="text-muted">Departement</span></div>
+            <input class="col-sm-8 form-control" name="departement" [(ngModel)]="coll.departement" value={{coll.departement}}/>
+          </div>
+        </li>
+      </ul>
+
+      <button class="btn btn-primary" type="submit">Confirmer<i class="fa fa-fw fa-unlock-alt"></i></button>
+    </div>
+  </div>
+</form>
+

@@ -4,8 +4,9 @@ export  class CollaborateurModel{
   prenom:string="";
   email:string="";
   password:string="";
-  dateNaissance:string="";
+  dateNaissance:any="";
   adress:string="";
+  lieuNaissance:string="";
   departement:string;
 
 

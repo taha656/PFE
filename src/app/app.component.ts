@@ -9,8 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'JavaSampleApproach';
   description = 'Angular4-MongoDB';
-  collection=[];
-i:number=0;
+
 
   constructor() {
 

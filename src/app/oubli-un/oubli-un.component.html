@@ -1,0 +1,20 @@
+<h1>Hr Access</h1>
+<div class="panel panel-default text-center">
+  <img src="assets/images/people/110/guy-5.jpg" class="img-circle">
+  <form #f="ngForm" (ngSubmit)="codeGeneration(f.value.codeGenerer)">
+    <h3>Vous allez recevoir un code de generation dans quelques instant ..</h3>
+    <h5>Veuillez confirmer le code apres generation</h5>
+
+    <div class="form-group">
+      <div class="panel-body">
+        <input class="form-control" type="text" placeholder="code generation" ngModel="" name="codeGenerer" >
+
+      </div>
+    </div>
+
+
+    <button class="btn btn-primary" type="submit">Confirmer<i class="fa fa-fw fa-unlock-alt"></i></button>
+
+
+  </form> <a (click)="codeGeneration(f.value.codeGenerer)" class="forgot-password">yoo?</a>
+</div>

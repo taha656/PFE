@@ -1,0 +1,42 @@
+
+<div class="panel panel-default">
+  <div class="panel-heading panel-heading-gray">
+    <a (click)="editColl()"  class="btn btn-white btn-xs pull-right"><i class="fa fa-pencil"></i></a>
+    <i class="fa fa-fw fa-info-circle"></i> About
+  </div>
+  <div class="panel-body">
+    <ul class="list-unstyled profile-about margin-none">
+      <li class="padding-v-5">
+        <div class="row">
+          <div class="col-sm-4"><span class="text-muted">Nom</span></div>
+          <div class="col-sm-8">{{coll.nom}}</div>
+        </div>
+      </li>
+      <li class="padding-v-5">
+        <div class="row">
+          <div class="col-sm-4"><span class="text-muted">Prenom</span></div>
+          <div class="col-sm-8">{{coll.prenom}}</div>
+        </div>
+      </li>
+      <li class="padding-v-5">
+        <div class="row">
+          <div class="col-sm-4"><span class="text-muted">Date de naissance</span></div>
+          <div class="col-sm-8">{{coll.dateNaissance  |date:'MM/dd/yyyy  '}}</div>
+        </div>
+      </li>
+      <li class="padding-v-5">
+        <div class="row">
+          <div class="col-sm-4"><span class="text-muted">Adress</span></div>
+          <div class="col-sm-8">{{coll.adress}}</div>
+        </div>
+      </li>
+      <li class="padding-v-5">
+        <div class="row">
+          <div class="col-sm-4"><span class="text-muted">Departement</span></div>
+          <div class="col-sm-8">{{coll.departement }}</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+

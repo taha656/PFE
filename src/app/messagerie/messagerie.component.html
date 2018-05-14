@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html class="st-layout ls-top-navbar ls-bottom-footer show-sidebar sidebar-l-sum-22" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>ThemeKit</title>
+
+  <!-- Vendor CSS BUNDLE
+    Includes styling for all of the 3rd party libraries used with this module, such as Bootstrap, Font Awesome and others.
+    TIP: Using bundles will improve performance by reducing the number of network requests the client needs to make when loading the page. -->
+  <link href="assets/css/vendor/all.css" rel="stylesheet">
+
+  <!-- Vendor CSS Standalone Libraries
+        NOTE: Some of these may have been customized (for example, Bootstrap).
+        See: src/less/themes/{theme_name}/vendor/ directory -->
+  <!-- <link href="css/vendor/bootstrap.css" rel="stylesheet"> -->
+  <!-- <link href="css/vendor/font-awesome.css" rel="stylesheet"> -->
+  <!-- <link href="css/vendor/picto.css" rel="stylesheet"> -->
+  <!-- <link href="css/vendor/material-design-iconic-font.css" rel="stylesheet"> -->
+  <!-- <link href="css/vendor/datepicker3.css" rel="stylesheet"> -->
+  <!-- <link href="css/vendor/jquery.minicolors.css" rel="stylesheet"> -->
+  <!-- <link href="css/vendor/bootstrap-slider.css" rel="stylesheet"> -->
+  <!-- <link href="css/vendor/railscasts.css" rel="stylesheet"> -->
+  <!-- <link href="css/vendor/jquery-jvectormap.css" rel="stylesheet"> -->
+  <!-- <link href="css/vendor/owl.carousel.css" rel="stylesheet"> -->
+  <!-- <link href="css/vendor/slick.css" rel="stylesheet"> -->
+  <!-- <link href="css/vendor/morris.css" rel="stylesheet"> -->
+  <!-- <link href="css/vendor/ui.fancytree.css" rel="stylesheet"> -->
+  <!-- <link href="css/vendor/daterangepicker-bs3.css" rel="stylesheet"> -->
+  <!-- <link href="css/vendor/jquery.bootstrap-touchspin.css" rel="stylesheet"> -->
+  <!-- <link href="css/vendor/select2.css" rel="stylesheet"> -->
+
+  <!-- APP CSS BUNDLE [css/app/app.css]
+INCLUDES:
+    - The APP CSS CORE styling required by the "admin" module, also available with main.css - see below;
+    - The APP CSS STANDALONE modules required by the "admin" module;
+NOTE:
+    - This bundle may NOT include ALL of the available APP CSS STANDALONE modules;
+      It was optimised to load only what is actually used by the "admin" module;
+      Other APP CSS STANDALONE modules may be available in addition to what's included with this bundle.
+      See src/less/themes/admin/app.less
+TIP:
+    - Using bundles will improve performance by greatly reducing the number of network requests the client needs to make when loading the page. -->
+  <link href="assets/css/app/app.css" rel="stylesheet">
+
+  <!-- App CSS CORE
+This variant is to be used when loading the separate styling modules -->
+  <!-- <link href="css/app/main.css" rel="stylesheet"> -->
+
+  <!-- App CSS Standalone Modules
+    As a convenience, we provide the entire UI framework broke down in separate modules
+    Some of the standalone modules may have not been used with the current theme/module
+    but ALL modules are 100% compatible -->
+
+  <!-- <link href="css/app/essentials.css" rel="stylesheet" /> -->
+  <!-- <link href="css/app/layout.css" rel="stylesheet" /> -->
+  <!-- <link href="css/app/sidebar.css" rel="stylesheet" /> -->
+  <!-- <link href="css/app/sidebar-skins.css" rel="stylesheet" /> -->
+  <!-- <link href="css/app/navbar.css" rel="stylesheet" /> -->
+  <!-- <link href="css/app/media.css" rel="stylesheet" /> -->
+  <!-- <link href="css/app/player.css" rel="stylesheet" /> -->
+  <!-- <link href="css/app/timeline.css" rel="stylesheet" /> -->
+  <!-- <link href="css/app/cover.css" rel="stylesheet" /> -->
+  <!-- <link href="css/app/chat.css" rel="stylesheet" /> -->
+  <!-- <link href="css/app/charts.css" rel="stylesheet" /> -->
+  <!-- <link href="css/app/maps.css" rel="stylesheet" /> -->
+  <!-- <link href="css/app/colors-alerts.css" rel="stylesheet" /> -->
+  <!-- <link href="css/app/colors-background.css" rel="stylesheet" /> -->
+  <!-- <link href="css/app/colors-buttons.css" rel="stylesheet" /> -->
+  <!-- <link href="css/app/colors-calendar.css" rel="stylesheet" /> -->
+  <!-- <link href="css/app/colors-progress-bars.css" rel="stylesheet" /> -->
+  <!-- <link href="css/app/colors-text.css" rel="stylesheet" /> -->
+  <!-- <link href="css/app/ui.css" rel="stylesheet" /> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!-- If you don't need support for Internet Explorer <= 8 you can safely remove these -->
+  <!--[if lt IE 9]>
+
+  <![endif]-->
+
+</head>
+
+<body>
+
+<!-- Wrapper required for sidebar transitions -->
+<div class="st-container">
+
+  <!-- Fixed navbar -->
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="#sidebar-menu" data-toggle="sidebar-menu" data-effect="st-effect-3" class="toggle pull-left visible-xs"><i class="fa fa-bars"></i></a>
+
+        <a href="#sidebar-chat" data-toggle="sidebar-menu" class="toggle pull-right"><i class="fa fa-comments"></i></a>
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="index.html" class="navbar-brand hidden-xs navbar-brand-primary">ThemeKit</a>
+      </div>
+      <div class="navbar-collapse collapse" id="collapse">
+        <form class="navbar-form navbar-left hidden-xs" role="search">
+          <div class="search-2">
+            <div class="input-group">
+              <input type="text" class="form-control form-control-w-150" placeholder="Search ..">
+              <span class="input-group-btn">
+            <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+        </span>
+            </div>
+          </div>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <!-- notifications -->
+          <li class="dropdown notifications updates hidden-xs hidden-sm">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="badge badge-primary">4</span>
+            </a>
+            <ul class="dropdown-menu" role="notification">
+              <li class="dropdown-header">Notifications</li>
+              <li class="media">
+                <div class="pull-right">
+                  <span class="label label-success">New</span>
+                </div>
+                <div class="media-left">
+                  <img src="assets/images/people/50/guy-2.jpg" alt="people" class="img-circle" width="30">
+                </div>
+                <div class="media-body">
+                  <a href="#">Adrian D.</a> posted <a href="#">a photo</a> on his timeline.
+                  <br/>
+                  <span class="text-caption text-muted">5 mins ago</span>
+                </div>
+              </li>
+              <li class="media">
+                <div class="pull-right">
+                  <span class="label label-success">New</span>
+                </div>
+                <div class="media-left">
+                  <img src="assets/images/people/50/guy-6.jpg" alt="people" class="img-circle" width="30">
+                </div>
+                <div class="media-body">
+                  <a href="#">Bill</a> posted <a href="#">a comment</a> on Adrian's recent <a href="#">post</a>.
+                  <br/>
+                  <span class="text-caption text-muted">3 hrs ago</span>
+                </div>
+              </li>
+              <li class="media">
+                <div class="media-left">
+                  <span class="icon-block s30 bg-grey-200"><i class="fa fa-plus"></i></span>
+                </div>
+                <div class="media-body">
+                  <a href="#">Mary D.</a> and <a href="#">Michelle</a> are now friends.
+                  <p>
+                    <span class="text-caption text-muted">1 day ago</span>
+                  </p>
+                  <a href="">
+                    <img class="width-30 img-circle" src="assets/images/people/50/woman-6.jpg" alt="people">
+                  </a>
+                  <a href="">
+                    <img class="width-30 img-circle" src="assets/images/people/50/woman-3.jpg" alt="people">
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <!-- // END notifications -->
+          <!-- messages -->
+          <li class="dropdown notifications hidden-xs hidden-sm">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-envelope-o"></i>
+
+              <span class="badge floating badge-danger">12</span>
+
+            </a>
+            <ul class="dropdown-menu">
+              <li class="media">
+                <div class="media-left">
+                  <a href="#">
+                    <img class="media-object thumb" src="assets/images/people/50/guy-2.jpg" alt="people">
+                  </a>
+                </div>
+                <div class="media-body">
+                  <div class="pull-right">
+                    <span class="label label-default">5 min</span>
+                  </div>
+                  <h5 class="media-heading">Adrian D.</h5>
+
+                  <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </div>
+              </li>
+              <li class="media">
+                <div class="media-left">
+                  <a href="#">
+                    <img class="media-object thumb" src="assets/images/people/50/woman-7.jpg" alt="people">
+                  </a>
+                </div>
+
+                <div class="media-body">
+                  <div class="pull-right">
+                    <span class="label label-default">2 days</span>
+                  </div>
+                  <h5 class="media-heading">Jane B.</h5>
+                  <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </div>
+              </li>
+              <li class="media">
+                <div class="media-left">
+                  <a href="#">
+                    <img class="media-object thumb" src="assets/images/people/50/guy-8.jpg" alt="people">
+                  </a>
+                </div>
+
+                <div class="media-body">
+                  <div class="pull-right">
+                    <span class="label label-default">3 days</span>
+                  </div>
+                  <h5 class="media-heading">Andrew M.</h5>
+                  <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <!-- // END messages -->
+          <!-- user -->
+          <li class="dropdown user">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="assets/images/people/110/guy-6.jpg" alt="" class="img-circle" /> Bill<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#"><i class="fa fa-user"></i>Profile</a></li>
+              <li><a href="#"><i class="fa fa-wrench"></i>Settings</a></li>
+              <li><a href="#"><i class="fa fa-sign-out"></i>Logout</a></li>
+            </ul>
+          </li>
+          <!-- // END user -->
+          <!-- country flags -->
+          <li class="dropdown flags">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="assets/images/flags/Flag_of_the_United_States.svg" alt="United States" />
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu min-width-none" role="menu">
+              <li class="active text-center">
+                <a href="#">
+                  <img src="assets/images/flags/Flag_of_the_United_States.svg" alt="United States" />
+                </a>
+              </li>
+              <li class="text-center">
+                <a href="#">
+                  <img src="assets/images/flags/Flag_of_France.svg" alt="France" />
+                </a>
+              </li>
+              <li class="text-center">
+                <a href="#">
+                  <img src="assets/images/flags/Flag_of_Germany.svg" alt="Germany" />
+                </a>
+              </li>
+              <li class="text-center">
+                <a href="#">
+                  <img src="assets/images/flags/Flag_of_Romania.svg" alt="Romania" />
+                </a>
+              </li>
+              <li class="text-center">
+                <a href="#">
+                  <img src="assets/images/flags/Flag_of_Poland.svg" alt="Poland" />
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- // END country flags -->
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sidebar component with st-effect-1 (set on the toggle button within the navbar) -->
+
+  <div class="sidebar sidebar-chat left sidebar-size-2 sidebar-offset-2 chat-skin-white sidebar-visible-desktop" id=sidebar-chat>
+    <div class="split-vertical">
+      <div class="chat-search">
+        <input type="text" class="form-control" placeholder="Search" />
+      </div>
+
+      <ul class="chat-filter nav nav-pills ">
+        <li class="active"><a href="#" data-target="li">All</a></li>
+        <li><a href="#" data-target=".online">Online</a></li>
+        <li><a href="#" data-target=".offline">Offline</a></li>
+      </ul>
+      <div class="split-vertical-body">
+        <div class="split-vertical-cell">
+          <div data-scrollable>
+            <ul class="chat-contacts">
+              <table>
+
+                <tr *ngFor="let u of col ">
+              <li class="online" data-user-id="1">
+                <a href="#">
+                  <div class="media">
+                    <div class="pull-left">
+                      <span class="status"></span>
+                      <div class="form-group" style="width: 100px ;height: 100px;">
+
+                        <form-upload [user]="u"></form-upload>
+                      </div>
+                    </div>
+                    <div class="media-body">
+
+                      <div class="contact-name">{{u.email}}</div>
+
+                    </div>
+                  </div>
+                </a>
+              </li></tr></table>
+
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script id="chat-window-template" type="text/x-handlebars-template">
+
+    <div class="panel panel-default">
+      <div class="panel-heading" data-toggle="chat-collapse" data-target="#chat-bill">
+        <a href="#" class="close"><i class="fa fa-times"></i></a>
+        <a href="#">
+            <span class="pull-left">
+                    <img src="{{ user_image }}" width="40">
+                </span>
+          <span class="contact-name">{{user}}</span>
+        </a>
+      </div>
+      <div class="panel-body" id="chat-bill">
+        <div class="media">
+          <div class="media-left">
+            <img src="{{ user_image }}" width="25" class="img-circle" alt="people" />
+          </div>
+          <div class="media-body">
+            <span class="message">Feeling Groovy?</span>
+          </div>
+        </div>
+        <div class="media">
+          <div class="media-left">
+            <img src="{{ user_image }}" width="25" class="img-circle" alt="people" />
+          </div>
+          <div class="media-body">
+            <span class="message">Yep.</span>
+          </div>
+        </div>
+        <div class="media">
+          <div class="media-left">
+            <img src="{{ user_image }}" width="25" class="img-circle" alt="people" />
+          </div>
+          <div class="media-body">
+            <span class="message">This chat window looks amazing.</span>
+          </div>
+        </div>
+        <div class="media">
+          <div class="media-left">
+            <img src="{{ user_image }}" width="25" class="img-circle" alt="people" />
+          </div>
+          <div class="media-body">
+            <span class="message">Thanks!</span>
+          </div>
+        </div>
+      </div>
+      <input type="text" class="form-control" placeholder="Type message..." />
+    </div>
+  </script>
+
+  <div class="chat-window-container"></div>
+
+  <!-- content push wrapper -->
+  <div class="st-pusher col-lg-12">
+
+    <!-- sidebar effects INSIDE of st-pusher: -->
+    <!-- st-effect-3, st-effect-6, st-effect-7, st-effect-8, st-effect-14 -->
+
+    <!-- Sidebar component with st-effect-3 (set on the toggle button within the navbar) -->
+
+
+    <!-- this is the wrapper for the content -->
+    <div class="st-content ">
+
+      <!-- extra div for emulating position:fixed of the menu -->
+      <div class="st-content-inner " id="content">
+
+        <div class="container-fluid ">
+          <!-- Messages -->
+
+          <div class="panel panel-default share">
+            <div class="input-group">
+              <div class="input-group-btn">
+                <a class="btn btn-primary">
+                  <i class="fa fa-envelope"></i> Send
+                </a>
+              </div>
+
+              <!-- /btn-group -->
+              <input type="text"  #input (keyup.enter)="sendMessage(input.value)" class="form-control share-text" placeholder="Write message...">
+
+            </div>
+
+            <!-- /input-group -->
+          </div>
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img src="assets/images/people/110/woman-5.jpg" width="60" alt="woman" class="img-rounded media-object">
+              </a>
+            </div>
+
+            <div class="media-body message">
+              <div class="panel panel-default">
+                <div class="panel-heading panel-heading-white">
+                  <div class="pull-right">
+                    <small class="text-muted">2 min ago</small>
+                  </div>
+                  <a href="#">Mary D.</a>
+                </div>
+                <div class="panel-body">
+
+
+
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="media">
+            <div class="media-body message">
+              <div class="panel panel-default">
+                <div class="panel-heading panel-heading-white">
+                  <div class="pull-right">
+                    <small class="text-muted">10 min ago</small>
+                  </div>
+                  <a href="#">Me</a>
+                </div>
+                <div class="panel-body">
+                  Are we still on for Today?
+                </div>
+              </div>
+            </div>
+            <div class="media-right">
+              <img src="assets/images/people/110/guy-5.jpg" width="60" alt="guy" class="img-rounded media-object">
+            </div>
+          </div>
+          <div class="media">
+            <div class="media-left">
+              <img src="assets/images/people/110/woman-5.jpg" width="60" alt="woman" class="img-rounded media-object">
+            </div>
+            <div class="media-body message">
+              <div class="panel panel-default">
+                <div class="panel-heading panel-heading-white">
+                  <div class="pull-right">
+                    <small class="text-muted">1 day ago</small>
+                  </div>
+                  <a href="#">Mary D.</a>
+                </div>
+                <div class="panel-body">
+                  Cool. It's settled. Tomorrow will discuss the project.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="media">
+            <div class="media-body message">
+              <div class="panel panel-default">
+                <div class="panel-heading panel-heading-white">
+                  <div class="pull-right">
+                    <small class="text-muted">3 days ago</small>
+                  </div>
+                  <a href="#">Me</a>
+                </div>
+                <div class="panel-body">
+                  I suggest a meeting on Tuesday. What do you think?
+                </div>
+              </div>
+            </div>
+            <div class="media-right">
+              <img src="assets/images/people/110/guy-5.jpg" width="60" alt="guy" class="img-rounded media-object">
+            </div>
+          </div>
+
+          <!-- /Messages -->
+
+        </div>
+
+      </div>
+      <!-- /st-content-inner -->
+
+    </div>
+    <!-- /st-content -->
+
+  </div>
+  <!-- /st-pusher -->
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+</div>
+
+
+
+
+<script src="assets/js/vendor/all.js"></script>
+
+
+<script src="assets/js/app/app.js"></script>
+
+
+
+</body>
+
+</html>

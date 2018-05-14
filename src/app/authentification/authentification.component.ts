@@ -12,58 +12,27 @@ import {AuthentificaionService} from "../authentificaion.service";
 })
 export class AuthentificationComponent implements OnInit {
  username:any="";
+  erreurDinsription:number=0;
+  msg:any;
+  oubli:number=0;
+  monCode:any;
+public email:string="";
 mode:number=0;
 public user:CollaborateurModel;
+c:any;
 collaborateur:CollaborateurModel= new CollaborateurModel();
   constructor(public http:Http, public router:Router , public collaborateurService:CollaborateurService,private authentificationService:AuthentificaionService) { }
 
   ngOnInit() {
-  //  let token =this.authentificationService.loadToken();
-   // if(token)
-    //  this.router.navigateByUrl('/publication');
 
       }
-  onLogin(collabrateur) {
-    console.log(collabrateur.valueOf().email);
-  // this.username=collabrateur.valueOf().email;
-this.authentificationService.login(collabrateur)
-  .subscribe(resp=> {
-let jwt=resp.headers.get('Authorization');
-      console.log(resp.headers.get('Authorization'));
-
-    this.authentificationService.saveToken(jwt);
-
-
-   this.router.navigateByUrl('/publication');
-    window.location.reload();
-   //
-
-      //this.router.navigate(['/publication']);
-
-    console.log("reussi");
-
-  },
-  err=>{
-this.mode=1;
-
-    console.log(err);
-  })
-}
 
 
 
-  saveRegistration(email:string){
 
 
-    this.collaborateurService.saveCol(this.collaborateur)
-      .subscribe((data :any)=> {
-        this.collaborateur=data
 
-      }, err => {
-        console.log(err);
-      })
 
-  }
 
 
 

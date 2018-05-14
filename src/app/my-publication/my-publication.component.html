@@ -1,0 +1,109 @@
+<table>
+
+  <tr *ngFor="let c of MypagePublication | paginate :{itemsPerPage:5,currentPage:p} ">
+    <div let d="c.commentaires.length">
+      <div class="col-xs-12 col-md-8 col-lg-8 item">
+        <div class="timeline-block">
+          <div class="panel panel-default">
+
+            <div class="panel-heading">
+              <div class="media">
+                <div class="media-left">
+                  <a href="">
+                    <img src="assets/images/people/50/woman-5.jpg" class="media-object">
+                  </a>
+                </div>
+                <div class="media-body">
+                  <a href="#" class="pull-right text-muted"><i class="icon-reply-all-fill fa fa-2x "></i></a>
+
+                  <a href="" style="color: #0a0a0a">{{c.collaborateur.email}}</a>
+
+                  <span>{{c.datePublication |date:'MM/dd/yyyy  h:mma'}} </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-body">
+              <div class="boxed">
+                <a href="#" class="h4 margin-none">Vegetarian Pizza</a>
+                <div>
+                  <span class="fa fa-star text-primary"></span>
+                  <span class="fa fa-star text-primary"></span>
+                  <span class="fa fa-star text-primary"></span>
+                  <span class="fa fa-star text-primary"></span>
+                  <span class="fa fa-star-o"></span>
+                </div>
+
+                <div class="media">
+                  <div class="media-left">
+                    <a href="#">
+                      <img src="assets/images/food1.jpg" alt="" width="80" class="media-object">
+                    </a>
+                  </div>
+                  <div class="media-body">
+                    <p> <td>{{c.publicationText}}</td>
+
+
+
+                    </p> </div>
+                </div>
+                <ul class="icon-list">
+                  <li><i class="fa fa-star fa-fw"></i> 4.8</li>
+                  <li><i class="fa fa-clock-o fa-fw"></i> 20 min</li>
+                  <li><i class="fa fa-graduation-cap fa-fw"></i> Beginner</li>
+                </ul>
+              </div>
+
+            </div>
+
+            <div class="view-all-comments">
+              <a href="#">
+                <i class="fa fa-comments-o"></i> View all
+              </a>
+              <span>10 comments</span>
+
+            </div>
+            <table>
+
+              <tr *ngFor="let c1 of c.commentaires; let  i=index">
+                <ul class="comments">
+
+                  &lt;!&ndash; ici debut  des commentaires &ndash;&gt;
+                  <li class="media">
+                    <div class="media-left">
+                      <a href="">
+                        <img src="assets/images/people/50/guy-5.jpg" class="media-object">
+                      </a>
+                    </div>
+                    <div class="media-body">
+                      <div class="pull-right dropdown" data-show-hover="li">
+                        <a href="#" data-toggle="dropdown" class="toggle-button">
+                          <i class="fa fa-pencil"></i>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Edit</a></li>
+                          <li><a href="#">Delete</a></li>
+                        </ul>
+                      </div>
+                      <a href="" class="comment-author pull-left">{{c.commentaires[i].collaborateur?.email}}</a>
+
+                      <span >{{c.commentaires[i].textCom}}</span>
+
+                      <div class="comment-date" type="date">{{c.commentaires[i].dateCommentaire  |date:'MM/dd/yyyy  h:mma'}}</div>
+                    </div>
+
+                  </li>
+
+
+                </ul>
+
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </tr>
+
+</table>
+<pagination-controls (pageChange)="p =$event"></pagination-controls>

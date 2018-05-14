@@ -1,0 +1,20 @@
+<div class="col-xs-12 col-md-6 col-lg-4 item">
+  <div class="timeline-block">
+    <div class="panel panel-default share clearfix-xs">
+      <div class="panel-heading panel-heading-gray title">
+        What&acute;s new
+      </div>
+      <div class="panel-body">
+        <textarea type="text" [(ngModel)]="publication.publicationText"  class="form-control share-text" rows="3" placeholder="Share your status..."></textarea>
+      </div>
+      <div class="panel-footer share-buttons">
+        <a href="#"><i class="fa fa-map-marker"></i></a>
+        <div class="form-group" style="width: 100px ;height: 100px;">
+          <form-upload2 [user]="publication"></form-upload2>
+        </div>
+        <a href="#"><i class="fa fa-video-camera"></i></a>
+        <button  (click)="savePublication()" class="btn btn-primary btn-xs pull-right " >Post</button>
+      </div>
+    </div>
+  </div>
+</div>
