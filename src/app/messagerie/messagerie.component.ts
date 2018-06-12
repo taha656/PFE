@@ -5,6 +5,8 @@ import * as $ from 'jquery';
 import {Http} from "@angular/http";
 import {Router} from "@angular/router";
 import {CollaborateurService} from "../collaborateur.service";
+import {AuthentificaionService} from "../authentificaion.service";
+import {MessagerieModel} from "../Model/MessagerieModel";
 var SockJs = require("sockjs-client");
 var Stomp = require("stompjs");
 
@@ -18,38 +20,92 @@ export class MessagerieComponent implements OnInit {
   public test= "main-section";
   private stompClient;
   private msg="" ;
-  col:any;
+
+  mail:string;
+ public messagerie: MessagerieModel;
+  user:any;
   public messages:any[]=[];
-  constructor( public router:Router,public http:Http , public collaborateurService:CollaborateurService ){
+   message:MessagerieModel;
+  collImg:any;
+  constructor( public router:Router,public http:Http , public collaborateurService:CollaborateurService, public authentificationService:AuthentificaionService ){
+/*
     this. stompClient = this.connect();
     let that = this;
-    this.stompClient.connect({}, function(frame) {
-      that.stompClient.subscribe("/queue/chat", message => {
+    this.stompClient.connect({}, (frame) => {
+      that.stompClient.subscribe("/queue/chat/"+this.authentificationService.getUser(), message => {
 
         if(message.body) {
           this.messages=(message.body);
           console.log("karima"+this.messages);
 
-      //    console.log(message.body);
+          }
+            //    console.log(message.body);
         //  console.log(localStorage.getItem('input'));
         //  console.log(localStorage.getItem('lastInput'));
           this.msg=localStorage.getItem('input');
-        /*  if (((this.message).texte)==this.msg){*/
-            $(".panel-body").append("<p>"+this.messages+"</p>")
-       /*   }else{
+        /!*  if (((this.message).texte)==this.msg){*!/
+            $(".panel-body").append("<div class='media'> <div class='media-left'> <a href='#'> <img src='assets/images/balsamiq.png' width='60' alt='woman' class='img-rounded media-object'> </a> </div> <div class='media-body message'> <div class='panel panel-default'> <div class='panel-heading panel-heading-white'> <div class='pull-right'> <small class='text-muted'>2 min ago</small> </div> <a href='#'></a> </div><p>"+this.messages+"</p></div> </div> </div>")
+       /!*   }else{
             $(".right-chat").append("<p _ngcontent-c9>"+(this.message).texte+"</p>")
-          }*/
+          }*!/
           localStorage.setItem('lastInput', this.msg);
 
-        }
+
       });
     });
+*/
 
   }
 
   ngOnInit(){
-    this.getAllCollaborateurs();
+    this.socketInitialisation(this.authentificationService.getUser());
+this.GetCollaborateur();
   }
+
+  GetCollaborateur(){
+    this.authentificationService.getCollaborateur().subscribe((data:any) =>{ this.collImg = data;
+      console.log(this.collImg);
+      //  console.log(window.alert(this.coll.id));
+
+//console.log(this.authentificationComponent.username);
+    }, err=>{
+
+      console.log(err);
+    });
+  }
+
+  socketInitialisation(username){
+    this. stompClient = this.connect();
+    let that = this;
+    this.stompClient.connect({}, function(frame) {
+      //console.log(uuid);
+      that.stompClient.subscribe("/queue/chat/"+username, message => {
+
+        if(message.body) {
+          this.message=JSON.parse(message.body);
+          //console.log(message.body);
+          //console.log(localStorage.getItem('input'));
+          //console.log(localStorage.getItem('lastInput'));
+          this.msg=localStorage.getItem('input');
+
+       //   console.log("dsds"+this.message.texte);
+this.GetCollaborateur;
+          //  if (((this.message).texte)==this.msg){
+          $(".panel-body").append("<div class='media'> <div class='media-left'><a  [routerLink]='[/consulter2, "+this.message.collaborateur.email+"]'>  "+this.message.collaborateur.prenom+"    </a> </div> <div class='media-body message'> <div class='panel panel-default'> <div class='panel-heading panel-heading-white'>"+this.message.collaborateur.email+" <div class='pull-right'> <small class='text-muted'>few secondes ago</span></small> </div> <a href='#'></a> </div><p>"+this.message.texte+"</p></div> </div> </div>")
+
+          //  }else.{
+          //  $(".right-chat").append("<p _ngcontent-c9>"+(this.message).texte+"</p>")
+          //  }
+          localStorage.setItem('lastInput', this.msg);// <form-upload4 [user]="+this.collImg+"></form-upload4>
+        }
+      });
+    });
+  }
+
+
+
+
+
 
   ngOnDestroy() {
     this.stompClient.disconnect({}, function(frame) {});
@@ -69,8 +125,10 @@ export class MessagerieComponent implements OnInit {
 
   sendMessage(message){
     localStorage.setItem('input', message);
-    this.stompClient.send("/app/send/message", {}, message);
-    $('#input').val('');
+    this.stompClient.send("/app/send/message/"+this.authentificationService.getUser(), {}, message);
+    $("#input").val('salut les amis');
+    message=null;
+    console.log("rrrrrrrrrrrrrrrrrrrr"+this.collImg)
   }
 
 
@@ -84,21 +142,5 @@ export class MessagerieComponent implements OnInit {
 
   }
 
-  getAllCollaborateurs() {
-
-    //  this.authenticationService.getCollaborateur().subscribe(data =>{ this.coll = data;});
-    this.collaborateurService.getAllCollaborateurs().subscribe(data1 =>{ this.col = data1;
-      console.log("oui");
-
-//this. CommentData();
-
-
-//console.log(this.authentificationComponent.username);
-    }, err=>{
-
-      console.log("non");
-    });
-
-
-  }
+  formatFileSrc = file => `data:${file.mimeType};base64,${file.data}`;
 }

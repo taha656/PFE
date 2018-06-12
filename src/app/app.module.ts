@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { VirtualScrollModule } from 'angular2-virtual-scroll';
-
+import swal from 'sweetalert2';
 
 import { AppComponent } from './app.component';
 
@@ -13,11 +13,9 @@ import { AppComponent } from './app.component';
 
 
 
-import { CustomersListComponent } from './customers/customers-list/customers-list.component';
-import { CustomerDetailsComponent } from './customers/customer-details/customer-details.component';
-import { CreateCustomerComponent } from './customers/create-customer/create-customer.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CustomerService } from './customers/customer.service';
+
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { PublicationComponent } from './publication/publication.component';
 import {RouterModule, Routes} from "@angular/router";
@@ -41,33 +39,28 @@ import { ModifierColDeuxComponent } from './modifier-col-deux/modifier-col-deux.
 import { MyPublicationComponent } from './my-publication/my-publication.component';
 import { SchedulerComponent } from './scheduler/scheduler.component';
 import {EventService} from "./scheduler/event.service";
-import { ListteDesReglesComponent } from './listte-des-regles/listte-des-regles.component';
+
 import { AdministrateurComponent } from './administrateur/administrateur.component';
 import { TableauAdminComponent } from './tableau-admin/tableau-admin.component';
 import { ConsulterProfilComponent } from './consulter-profil/consulter-profil.component';
 import { LikeComponent } from './like/like.component';
-import { UnlikeComponent } from './unlike/unlike.component';
-import { ShareComponent } from './share/share.component';
+
 import { NbLikesComponent } from './nb-likes/nb-likes.component';
 import { TemplateAdmintopComponent } from './template-admintop/template-admintop.component';
 import { MessagerieComponent } from './messagerie/messagerie.component';
 import { FormUploadComponent } from './form-upload/form-upload.component';
 import { FormUpload2Component } from './form-upload2/form-upload2.component';
-
+import { PublicationSignaleComponent } from './publication-signale/publication-signale.component';
+import { ConnecterComponent } from './connecter/connecter.component';
+import { Consulter2Component } from './consulter2/consulter2.component';
+import { LikesComponent } from './likes/likes.component';
+import { FormUpload3Component } from './form-upload3/form-upload3.component';
+import { FormUpload4Component } from './form-upload4/form-upload4.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: AuthentificationComponent },
-  { path: 'customers', component: CustomersListComponent },
-  { path: 'editProfile', component: EditProfilComponent },
-  { path: 'publication', component: PublicationComponent },
-  { path: 'publication', component: PublicationComponent },
-  { path: 'scheduler', component: SchedulerComponent },
-  { path: 'admin', component: AdministrateurComponent },
-  { path: 'consulterProfil', component: ConsulterProfilComponent },
-  { path: 'nbLikes', component: NbLikesComponent },
-  { path: 'messagerie', component: MessagerieComponent },
+
 
 ];
 
@@ -75,9 +68,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    CustomersListComponent,
-    CustomerDetailsComponent,
-    CreateCustomerComponent,
+
     AuthentificationComponent,
     PublicationComponent,
     EditProfilComponent,
@@ -92,34 +83,41 @@ const appRoutes: Routes = [
     ModifierColDeuxComponent,
     MyPublicationComponent,
     SchedulerComponent,
-    ListteDesReglesComponent,
     AdministrateurComponent,
     TableauAdminComponent,
     ConsulterProfilComponent,
     LikeComponent,
-    UnlikeComponent,
-    ShareComponent,
+
     NbLikesComponent,
     TemplateAdmintopComponent,
     MessagerieComponent,
     FormUploadComponent,
     FormUpload2Component,
+    PublicationSignaleComponent,
+    ConnecterComponent,
+    Consulter2Component,
+    LikesComponent,
+    FormUpload3Component,
+    FormUpload4Component,
 
 
 
   ],
+
   imports: [
     BrowserModule,
     NgxPaginationModule,
     FormsModule,
+    ChartsModule,
     AppRoutingModule,
     VirtualScrollModule,
     BrowserAnimationsModule,
     HttpClientModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+
+    //RouterModule.forRoot(appRoutes)
   ],
-  providers: [NotificationService,PublicationService,CustomerService,CollaborateurService,AuthentificaionService,SavePublicationServiceService,NavbarComponent,ModifierColDeuxComponent,ModifierColComponent,EditProfilComponent,PublicationComponent,EventService,TableauAdminComponent],
+  providers: [MyPublicationComponent,FormUpload2Component,FormUpload3Component, LikesComponent, NotificationService,NbLikesComponent,PublicationSignaleComponent,PublicationService,CollaborateurService,AuthentificaionService,SavePublicationServiceService,ModifierColDeuxComponent,ModifierColComponent,EditProfilComponent,PublicationComponent,EventService,TableauAdminComponent,NavbarComponent],
 
   bootstrap: [AppComponent]
 })

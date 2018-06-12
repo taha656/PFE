@@ -2,6 +2,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient, HttpResponse, HttpEventType } from '@angular/common/http';
 import {CollaborateurService} from "../collaborateur.service";
+import {Router} from "@angular/router";
 
 export const getBase64 = file => {
   const reader = new FileReader();
@@ -34,7 +35,7 @@ export class FormUploadComponent implements OnInit {
   profilephoto: any = null;
   profilephotoBase64: any = null;
 
-  constructor(private collaborateurService: CollaborateurService) {
+  constructor(private collaborateurService: CollaborateurService, public router:Router) {
 
   }
 

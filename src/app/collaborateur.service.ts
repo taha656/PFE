@@ -11,8 +11,8 @@ export class CollaborateurService {
 
   constructor(public http:Http,public authentifiactionService:AuthentificaionService) { }
   saveCol(collaborateur : CollaborateurModel){
-    return this.http.post("http://localhost:3036/collaborateurs/createexist",collaborateur)
-      .map(resp=>resp);
+    return this.http.post("http://localhost:3036/collaborateurs/create",collaborateur);
+
   }
   loadToken(){
     this.jwtToken=localStorage.getItem('token');
@@ -37,7 +37,7 @@ export class CollaborateurService {
   }
   EditCol(collaborateurs){
     this.authentifiactionService.edit();
-    return this.http.put("http://localhost:3036/collaborateurs/"+this.authentifiactionService.GetIdCourant(),collaborateurs) .map(resp=>resp);
+    return this.http.put("http://localhost:3036/collaborateurs/"+this.authentifiactionService.getUser(),collaborateurs) .map(resp=>resp);
 
   }
   supprimerCompte(a){

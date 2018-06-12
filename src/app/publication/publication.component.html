@@ -1,6 +1,6 @@
 
-<!DOCTYPE html>
-<html class="st-layout ls-top-navbar ls-bottom-footer hide-sidebar sidebar-r2" lang="en">
+
+<html class="st-layout ls-top-navbar ls-bottom-footer show-sidebar sidebar-l2" lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -12,6 +12,7 @@
 
   <link href="assets/css/vendor/all.css" rel="stylesheet">
   <link href="assets/css/app/app.css" rel="stylesheet">
+
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -22,41 +23,96 @@
 <body>
 <div class="st-container">
 
-  <div class="navbar navbar-main navbar-primary navbar-fixed-top" role="navigation">
-    <div class="container">
 
-    </div>
-  </div>
-  <div class="st-pusher" id="content">
-    <div class="st-content">
-      <div class="st-content-inner">
+
 
 
 
 
                   <app-navbar></app-navbar>
 
-          <div class="timeline row" data-toggle="isotope">
+<app-connecter></app-connecter>
+
+
+
+
+
+
+          <div class="container">
+
+          </div>
+
+        <div class="st-pusher" id="content">
+
+
+
+
+
+
+        <!-- Sidebar component with st-effect-3 (set on the toggle button within the navbar) -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Sidebar component with st-effect-1 (set on the toggle button within the navbar) -->
+
+
+
+
 
 
             <app-add-publication></app-add-publication>
-<button  (click)="eventt()">event </button>
+          <div class="col-xs-12 col-md-8 col-lg-3 item" style="margin-left: -620px;margin-top: 300px">
+          <app-likes></app-likes>
+          </div>
+          <div class="col-xs-12 col-md-8 col-lg-4 item" style="margin-left: -440px;margin-top: 600px">
+            <app-tableau-admin></app-tableau-admin>
+          </div>
+
 <table>
 
   <tr *ngFor="let c of rev   | paginate :{itemsPerPage:5,currentPage:p} ">
 <div let d="c.commentaires.length">
-            <div class="col-xs-12 col-md-8 col-lg-8 item">
-              <div class="timeline-block">
+            <div class="col-xs-12 col-md-8 col-lg-8 item" >
+              <div class="timeline-block" style=" box-shadow: 5px 5px 2px grey">
                 <div class="panel panel-default">
 
                   <div class="panel-heading">
                     <div class="media">
                       <div class="media-left">
-                        <a href="">
-                          <div class="form-group" style="width: 100px ;height: 100px;">
-                            <form-upload [user]="c.collaborateur"></form-upload>
+
+                          <div class="img-circle" >
+                            <img src={{formatFileSrc(c.collaborateur.profilephoto)}} class="photo-profil">
                           </div>
-                        </a>
+
                       </div>
                       <div class="media-body">
                         <a (click)="supprimerPublication(c.id)" class="pull-right text-muted">Delete<i class="icon-reply-all-fill fa fa-pencil "></i></a>
@@ -70,58 +126,49 @@
 
                   <div class="panel-body">
                     <div class="boxed">
-                      <a href="#" class="h4 margin-none">Vegetarian Pizza</a>
-                      <div>
-                        <span class="fa fa-star text-primary"></span>
-                        <span class="fa fa-star text-primary"></span>
-                        <span class="fa fa-star text-primary"></span>
-                        <span class="fa fa-star text-primary"></span>
-                        <span class="fa fa-star-o"></span>
-                      </div>
+                      <a class="h4 margin-none">Post</a>
+
 
                       <div class="media">
                         <div class="media-left">
-                          <a href="#">
+                          <a (click)="this.formUpload2.afficherPublication(c)">
                             <div class="form-group" style="width: 100px ;height: 100px;">
                               <form-upload2 [user]="c"></form-upload2>
                             </div>
                           </a>
                         </div>
                         <div class="media-body">
-                          <p> <td>{{c.publicationText}}</td>
+                          <p> <td><h1>{{c.publicationText}}</h1></td>
 
 
 
                           </p> </div>
                       </div>
-                      <ul class="icon-list">
-                        <li><i class="fa fa-star fa-fw"></i> 4.8</li>
-                        <li><i class="fa fa-clock-o fa-fw"></i> 20 min</li>
-                        <li><i class="fa fa-graduation-cap fa-fw"></i> Beginner</li>
-                      </ul>
+
                     </div>
 
                   </div>
 
                   <div class="btn-group btn-group-footer">
                     <a (click)="likePublication(c)" name="aaa" class="btn" ><i class="fa fa-heart" ></i>like</a>
-
+                  </div>
+                  <div class="btn-group btn-group-footer">
                       <div *ngFor="let l of likePublications " >
                     <div *ngIf="c.id==l.publication.id" >
                     <a (click)="unlikePublication(l.id)" class="btn btn-primary"><i class="fa"></i>Unlike </a>
-
+                    </div>
                     </div>
                       </div>
                     <a (click)="sharePublication(c)" class="btn"><i class="fa fa-user"></i> Share</a>
 
 
 
-     </div>
+
                   <div class="view-all-comments">
                     <a (click)="onSeeComments()">
-                      <i class="fa fa-comments-o"></i> View all
+                      <i class="fa fa-comments-o"></i> Voir tous les commentaires
                     </a>
-                    <span>10 comments</span>
+
 
                   </div>
                   <div *ngIf="seeCimments==1">
@@ -130,12 +177,12 @@
                   <tr *ngFor="let c1 of c.commentaires; let  i=index">
                       <ul class="comments">
 
-                        &lt;!&ndash; ici debut  des commentaires &ndash;&gt;
+
                         <li class="media">
                           <div class="media-left">
-                            <a href="">
-                              <img src="assets/images/people/50/guy-5.jpg" class="media-object">
-                            </a>
+
+                              <form-upload4 [user]="c1.collaborateur"></form-upload4>
+
                           </div>
                           <div class="media-body">
                             <div class="pull-right dropdown" data-show-hover="li">
@@ -147,7 +194,7 @@
                                 <li><a (click)="DeleteCommentaire(c.commentaires[i].id)">Supprimer</a></li>
                               </ul>
                             </div>
-                            <a href="" class="comment-author pull-left">{{c.commentaires[i].collaborateur?.email}}</a>
+                            <a  class="comment-author pull-left">{{c.commentaires[i].collaborateur?.email}}</a>
 <div *ngIf="modif==0">
                             <span >{{c.commentaires[i].textCom}}</span></div>
                             <div *ngIf="modif==1">
@@ -167,7 +214,7 @@
                       <div class="input-group">
 
                           <span class="input-group-btn">
-                   <a href="" class="btn btn-default"><i class="fa fa-photo"></i></a>
+
                 </span>
                         <!--[(ngModel)]="commentaire.textCom"-->
                         <input type="text" class="form-control  " [(ngModel)]="commentaire.textCom"  />
@@ -183,16 +230,14 @@
 
 </table>
             <pagination-controls (pageChange)="p =$event"></pagination-controls>
-          </div>
-        </div>
+
       </div>
-    </div>
+
 
   </div>
   <footer class="footer">
     <strong>Hr Acess</strong> v4.0.0 &copy; Copyright 2018
   </footer>
-<script src="assets/js/vendor/all.js"></script>
-<script src="assets/js/app/app.js"></script>
+
 </body>
 </html>

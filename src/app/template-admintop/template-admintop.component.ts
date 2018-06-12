@@ -6,6 +6,10 @@ import * as $ from 'jquery';
 import {NotificationService} from "../notification.service";
 import {PublicationService} from "../publication.service";
 import {PublicationComponent} from "../publication/publication.component";
+import {NbLikesComponent} from "../nb-likes/nb-likes.component";
+import {PublicationSignaleComponent} from "../publication-signale/publication-signale.component";
+import {LikesComponent} from "../likes/likes.component";
+import {AuthentificaionService} from "../authentificaion.service";
 var SockJs = require("sockjs-client");
 var Stomp = require("stompjs");
 @Component({
@@ -16,9 +20,12 @@ var Stomp = require("stompjs");
 export class TemplateAdmintopComponent implements OnInit {
   nbNotifications:number=0;
   public notification : any ;
-  public notifications:string[]=[];
+  collAdmin:any;
 
-  constructor(public router:Router, private notificationService:NotificationService, public publicationService:PublicationService,public publicationComponent:PublicationComponent) {
+  public notifications:string[]=[];
+public det:string="a aimé votre publication";
+  constructor(public authenticationService:AuthentificaionService, public nb:LikesComponent,public si:PublicationSignaleComponent, public router:Router, private notificationService:NotificationService, public publicationService:PublicationService,public publicationComponent:PublicationComponent) {
+this.getUser();
 
     let stompClient = this.connect();
     stompClient.connect({}, frame => {
@@ -45,6 +52,10 @@ export class TemplateAdmintopComponent implements OnInit {
   ngOnInit() {
 
   }
+  ref(){
+this.nb.voirPubLike();
+this.si.publicationSignaler();
+  }
 
   connect() {
     let socket = new SockJs(`http://localhost:3036/socket`);
@@ -67,6 +78,12 @@ export class TemplateAdmintopComponent implements OnInit {
     this.nbNotifications=0;
     // this.notifications=[];
   }
+
+  getUser(){
+    this.collAdmin=this.authenticationService.getUser();
+    console.log(this.collAdmin);
+  }
+
 
 
 

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html class="st-layout ls-top-navbar ls-bottom-footer show-sidebar sidebar-l2"  lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>ThemeKit</title>
+  <link href="assets/css/vendor/all.css" rel="stylesheet">
+  <link href="assets/css/app/app.css" rel="stylesheet">
+
+
+
+
+
+
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body>
+<app-navbar></app-navbar>
+
+
+
+
+        <div class="container-fluid">
+
+
+
+
+
+
+
+
+          <div class="panel panel-default" style="margin-left: 350px; ">
+            <table>
+
+              <tr *ngFor="let c of col | paginate :{itemsPerPage:5,currentPage:p} ">
+
+                <div class="col-xs-12 col-md-8 col-lg-8 item">
+                  <div class="timeline-block" style="box-shadow: 5px 5px 2px grey">
+                    <div class="panel panel-default">
+
+                      <div class="panel-heading">
+                        <div class="media">
+                          <div class="media-left">
+                            <div class="form-group" style="width: 20px ;height: 20px;">
+                              <form-upload4 [user]="c.collaborateur"></form-upload4>
+                            </div>
+                          </div>
+                          <div class="media-body">
+                            <a [routerLink]="['/consulter2',c.collaborateur.email]"style="color: #0a0a0a" >{{c.collaborateur.email}}</a>
+
+                            <span>{{c.datePublication |date:'MM/dd/yyyy  h:mma'}} </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="panel-body">
+                        <div class="boxed">
+                         Post
+
+                          <div class="media">
+                            <div class="media-left">
+                              <a (click)="this.formUpload2.afficherPublication(c)">
+                                <div class="form-group" style="width: 100px ;height: 100px;">
+                                  <form-upload2 [user]="c"></form-upload2>
+                                </div>
+                              </a>
+                            </div>
+                            <div class="media-body h4 ">
+                              <p> <td>{{c.publicationText}}</td>
+
+
+
+                              </p> </div>
+                          </div>
+                          <ul class="icon-list">
+
+                          </ul>
+                        </div>
+
+                      </div>
+
+
+                      <table>
+
+                        <tr *ngFor="let c1 of c.commentaires; let  i=index">
+                          <ul class="comments">
+
+
+                            <li class="media">
+                              <div class="media-left">
+
+                                  <form-upload4 [user]="c1.collaborateur"></form-upload4>
+
+                              </div>
+                              <div class="media-body">
+
+                                <a href="" class="comment-author pull-left">{{c.commentaires[i].collaborateur?.email}}</a>
+
+                                <span >{{c.commentaires[i].textCom}}</span>
+
+                                <div class="comment-date" type="date">{{c.commentaires[i].dateCommentaire  |date:'MM/dd/yyyy  h:mma'}}</div>
+                              </div>
+
+                            </li>
+
+
+                          </ul>
+
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+              </tr>
+
+            </table>
+            <pagination-controls (pageChange)="p =$event"></pagination-controls>
+
+
+      <!-- /st-content-inner -->
+
+    </div>
+    <!-- /st-content -->
+
+  </div>
+  <!-- /st-pusher -->
+
+  <!-- Footer -->
+
+
+
+<!-- /st-container -->
+
+<!-- Inline Script for colors and config objects; used by various external scripts; -->
+
+
+<script src="assets/js/vendor/all.js"></script>
+
+<script src="assets/js/app/app.js"></script>
+
+</body>
+
+</html>

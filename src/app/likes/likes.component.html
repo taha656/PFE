@@ -1,0 +1,37 @@
+<div class="st-content"  id="content">
+
+
+  <div class="row" data-toggle="isotope">
+    &nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <div  >
+      <!-- Leaderboard -->
+      <div class="panel panel-default" style=" box-shadow: 5px 5px 2px grey">
+        <div class="panel-heading" style="background: #26a69a ">
+          <h4 class="panel-title">Les publications qui ont le plus de likes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </h4>
+
+        </div>
+
+        <table class="table table-leaderboard margin-none ">
+          <tbody>
+
+
+          <tr *ngFor="let p of listPublication ; let i=index">
+            <td width="20"><h5>{{i+1}}</h5></td>
+            <td><a (click)="consulterProfil(p.collaborateur.email)"><i class="fa fa-flag text-muted"></i><h5>{{p.collaborateur.email}}</h5></a></td>
+            <td><i class="fa fa-flag text-muted"></i><h5>  <a (click)="this.formUpload2.afficherPublication(p)">{{p.publicationText}}</a></h5></td>
+            <td><span class="pull-right " ><strong><h5>{{p.nbLikes}}</h5></strong></span></td>
+          </tr>
+
+          </tbody>
+        </table>
+
+
+      </div>
+      <!-- // Leaderboard -->
+    </div>
+  </div>
+
+
+</div>

@@ -1,3 +1,46 @@
+.skins {
+  list-style: none;
+  padding: 0;
+  margin: 0 15px;
+  height: 50px;
+}
+.skins li {
+  display: inline-block;
+  margin-top: 16.5px;
+}
+.skins li span {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+.skins li.loading {
+  top: -3px;
+  position: relative;
+  width: 16px;
+}
+.skins li.loading span {
+  display: none;
+}
+.skins li.loading:after {
+  width: 16px;
+  text-align: center;
+  display: block;
+  content: "\f1ce";
+  -webkit-animation: fa-spin 2s infinite linear;
+          animation: fa-spin 2s infinite linear;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+#sidebar-chat {
+  z-index: 1039;
+}
+.chat-window-container {
+  z-index: 1040;
+}
 #filter {
   margin-bottom: 15px;
   padding-bottom: 15px;
@@ -193,41 +236,4 @@ body.login .lock-container .panel .forgot-password {
   font-weight: 500;
   color: #26a69a;
   display: block;
-}
-.skins {
-  list-style: none;
-  padding: 0;
-  margin: 0 15px;
-  height: 50px;
-}
-.skins li {
-  display: inline-block;
-  margin-top: 16.5px;
-}
-.skins li span {
-  display: block;
-  width: 16px;
-  height: 16px;
-  border: 1px solid #fff;
-  cursor: pointer;
-}
-.skins li.loading {
-  top: -3px;
-  position: relative;
-  width: 16px;
-}
-.skins li.loading span {
-  display: none;
-}
-.skins li.loading:after {
-  width: 16px;
-  text-align: center;
-  display: block;
-  content: "\f1ce";
-  -webkit-animation: fa-spin 2s infinite linear;
-          animation: fa-spin 2s infinite linear;
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
 }

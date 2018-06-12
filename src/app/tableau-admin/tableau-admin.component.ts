@@ -11,6 +11,8 @@ import {AuthentificaionService} from "../authentificaion.service";
 export class TableauAdminComponent implements OnInit {
 public total:number;
  public list1:any;
+ public totalL:number;
+public totalS:number;
   constructor(public publicationService:PublicationService,public router:Router,private authenticationService:AuthentificaionService) { }
 
   ngOnInit() {
@@ -18,6 +20,11 @@ public total:number;
     this.totalPub();
 
   }
+
+
+
+
+
 
   reloadtrieUser() {
 
@@ -51,7 +58,11 @@ public total:number;
 
   }
 
+
+
+
   consulterProfil(a){
+
   localStorage.setItem("consulterProfil",a);
   this.router.navigateByUrl('/consulterProfil')
   //  console.log(this.getProfil());

@@ -1,108 +1,96 @@
 <table>
 
-  <tr *ngFor="let c of MypagePublication | paginate :{itemsPerPage:5,currentPage:p} ">
-    <div let d="c.commentaires.length">
-      <div class="col-xs-12 col-md-8 col-lg-8 item">
-        <div class="timeline-block">
-          <div class="panel panel-default">
+  <tr *ngFor="let c of rev | paginate :{itemsPerPage:5,currentPage:p} ">
 
-            <div class="panel-heading">
+    <div class="col-xs-12 col-md-8 col-lg-8 item">
+      <div class="timeline-block" style="box-shadow: 5px 5px 2px grey">
+        <div class="panel panel-default">
+
+          <div class="panel-heading">
+            <div class="media">
+              <div class="media-left">
+                <div class="form-group" style="width: 20px ;height: 20px;">
+                  <form-upload4 [user]="c.collaborateur"></form-upload4>
+                </div>
+              </div>
+              <div class="media-body">
+                <a (click)="supprimerPublication(c.id)" class="pull-right text-muted" style="color:#00a2bb;">Delete<i style="color:#00a2bb;" class="icon-reply-all-fill fa fa-pencil "></i></a>
+
+                <a [routerLink]="['/consulter2',c.collaborateur.email]"style="color: #0a0a0a"> {{c.collaborateur.email}}</a>
+
+                <span>{{c.datePublication |date:'MM/dd/yyyy  h:mma'}} </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-body">
+            <div class="boxed">
+              <span class="h4 margin-none">Post</span>
+
+
               <div class="media">
                 <div class="media-left">
-                  <a href="">
-                    <img src="assets/images/people/50/woman-5.jpg" class="media-object">
+                  <a (click)="this.formUpload2.afficherPublication(c)">
+                    <div class="form-group" style="width: 100px ;height: 100px;">
+                      <form-upload2 [user]="c"></form-upload2>
+                    </div>
                   </a>
                 </div>
-                <div class="media-body">
-                  <a href="#" class="pull-right text-muted"><i class="icon-reply-all-fill fa fa-2x "></i></a>
+                <div class="media-body h4 ">
+                  <p> <td>{{c.publicationText}}</td>
 
-                  <a href="" style="color: #0a0a0a">{{c.collaborateur.email}}</a>
 
-                  <span>{{c.datePublication |date:'MM/dd/yyyy  h:mma'}} </span>
-                </div>
+
+                  </p> </div>
               </div>
+              <ul class="icon-list">
+
+              </ul>
             </div>
 
-            <div class="panel-body">
-              <div class="boxed">
-                <a href="#" class="h4 margin-none">Vegetarian Pizza</a>
-                <div>
-                  <span class="fa fa-star text-primary"></span>
-                  <span class="fa fa-star text-primary"></span>
-                  <span class="fa fa-star text-primary"></span>
-                  <span class="fa fa-star text-primary"></span>
-                  <span class="fa fa-star-o"></span>
-                </div>
+          </div>
 
-                <div class="media">
+
+          <table>
+
+            <tr *ngFor="let c1 of c.commentaires; let  i=index">
+              <ul class="comments">
+
+
+                <li class="media">
                   <div class="media-left">
-                    <a href="#">
-                      <img src="assets/images/food1.jpg" alt="" width="80" class="media-object">
-                    </a>
+
+                      <form-upload4 [user]="c1.collaborateur"></form-upload4>
+
                   </div>
                   <div class="media-body">
-                    <p> <td>{{c.publicationText}}</td>
-
-
-
-                    </p> </div>
-                </div>
-                <ul class="icon-list">
-                  <li><i class="fa fa-star fa-fw"></i> 4.8</li>
-                  <li><i class="fa fa-clock-o fa-fw"></i> 20 min</li>
-                  <li><i class="fa fa-graduation-cap fa-fw"></i> Beginner</li>
-                </ul>
-              </div>
-
-            </div>
-
-            <div class="view-all-comments">
-              <a href="#">
-                <i class="fa fa-comments-o"></i> View all
-              </a>
-              <span>10 comments</span>
-
-            </div>
-            <table>
-
-              <tr *ngFor="let c1 of c.commentaires; let  i=index">
-                <ul class="comments">
-
-                  &lt;!&ndash; ici debut  des commentaires &ndash;&gt;
-                  <li class="media">
-                    <div class="media-left">
-                      <a href="">
-                        <img src="assets/images/people/50/guy-5.jpg" class="media-object">
+                    <div class="pull-right dropdown" data-show-hover="li">
+                      <a href="#" data-toggle="dropdown" class="toggle-button">
+                        <i class="fa fa-pencil"></i>
                       </a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a (click)="this.publicationComponent.changerModeModif()" >Modifier</a></li>
+                        <li><a (click)="this.publicationComponent.DeleteCommentaire(c.commentaires[i].id)">Supprimer</a></li>
+                      </ul>
                     </div>
-                    <div class="media-body">
-                      <div class="pull-right dropdown" data-show-hover="li">
-                        <a href="#" data-toggle="dropdown" class="toggle-button">
-                          <i class="fa fa-pencil"></i>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Edit</a></li>
-                          <li><a href="#">Delete</a></li>
-                        </ul>
-                      </div>
-                      <a href="" class="comment-author pull-left">{{c.commentaires[i].collaborateur?.email}}</a>
+                    <span class="comment-author pull-left">{{c.commentaires[i].collaborateur?.email}}</span>
 
-                      <span >{{c.commentaires[i].textCom}}</span>
+                    <span >{{c.commentaires[i].textCom}}</span>
 
-                      <div class="comment-date" type="date">{{c.commentaires[i].dateCommentaire  |date:'MM/dd/yyyy  h:mma'}}</div>
-                    </div>
+                    <div class="comment-date" type="date">{{c.commentaires[i].dateCommentaire  |date:'MM/dd/yyyy  h:mma'}}</div>
+                  </div>
 
-                  </li>
+                </li>
 
 
-                </ul>
+              </ul>
 
-              </tr>
-            </table>
-          </div>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
+
   </tr>
 
 </table>

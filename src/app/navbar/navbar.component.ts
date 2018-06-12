@@ -59,12 +59,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-   this.getUser();
-   this.collab();
-   // this.reloadProfilePhoto();
-  }
-
-  collab(){
+this.getUser();
     this.authenticationService.getCollaborateur().subscribe((data :any)=> {
       this.user=data
 
@@ -75,8 +70,9 @@ export class NavbarComponent implements OnInit {
     }, err => {
       console.log(err);
     })
-
   }
+
+
 
   connect() {
     let socket = new SockJs(`http://localhost:3036/socket`);
@@ -93,6 +89,7 @@ export class NavbarComponent implements OnInit {
 
   resetNotifications(){
     this.nbNotifications=0;
+
     // this.notifications=[];
   }
 
@@ -103,17 +100,10 @@ getUser(){
     this.authenticationService.logout();
 
     this.router.navigateByUrl('/login');
-    window.location.reload();
+   // window.location.reload();
   }
 
-  reloadProfilePhoto() {
-    this.im=   this.authenticationService.getProfilPhoto();
-    console.log("oui");
-//console.log(this.authentificationComponent.username);
 
-
-
-  }
 
   onEditProfil(){
     this.router.navigateByUrl('/editProfile');

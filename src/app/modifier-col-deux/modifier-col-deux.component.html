@@ -1,6 +1,6 @@
 
 <form #f="ngForm" (ngSubmit)="ModifCol(f.value)">
-  <div class="panel panel-default">
+  <div class="panel panel-default" style="box-shadow: 5px 5px 2px grey">
     <div class="panel-heading panel-heading-gray">
       <a (click)="editCol()" class="btn btn-white btn-xs pull-right"><i class="fa fa-pencil"></i></a>
       <i class="fa fa-fw fa-info-circle"></i> About2
@@ -10,7 +10,12 @@
 
 
 
-
+        <li class="padding-v-5">
+          <div class="row">
+            <div class="col-sm-4"><span class="text-muted">Prenom</span></div>
+            <label class="col-sm-8 form-control" >{{coll.email}}</label>
+          </div>
+        </li>
 
         <li class="padding-v-5">
           <div class="row">

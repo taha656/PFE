@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 import {SavePublicationServiceService} from "../save-publication-service.service";
-
+import {Router} from "@angular/router";
+import swal from 'sweetalert2';
 export const getBase64 = file => {
   const reader = new FileReader();
   reader.readAsDataURL(file);
@@ -32,8 +33,8 @@ export class FormUpload2Component implements OnInit {
   progress: { percentage: number } = { percentage: 0 };
   profilephoto: any = null;
   profilephotoBase64: any = null;
-
-  constructor(public savePublicationService:SavePublicationServiceService) {
+p2:any;
+  constructor(public savePublicationService:SavePublicationServiceService,public router:Router) {
 
   }
 
@@ -44,7 +45,7 @@ export class FormUpload2Component implements OnInit {
   }
   ngOnInit() {}
   //trecuperi fichier w trécptih
-  async selectFile(event) {
+  async selectFile2(event) {
     console.log('@@@@@', this.user);
 
     const file = event.target.files[0];
@@ -52,7 +53,7 @@ export class FormUpload2Component implements OnInit {
     if (file.type.match('image.*')) {
       this.profilephotoBase64 = await getBase64(file);
       this.profilephoto = formatFile(this.profilephotoBase64, file.name);
-      this.updateProfilePhoto();
+
     } else {
       alert('invalid format!');
     }
@@ -60,17 +61,33 @@ export class FormUpload2Component implements OnInit {
 
   formatFileSrc = file => `data:${file.mimeType};base64,${file.data}`;
 
-  updateProfilePhoto() {
-    const profilephoto = this.profilephoto;
-    console.log("titita"+this.profilephoto);
-    console.log(this.user)
-    //console.log(this.user.phonenumber);
-    console.log('#####', { ...this.user,profilephoto });
-    this.savePublicationService.savePub({ ...this.user, profilephoto }).subscribe(res => {
-      if(res.valeur === 200) {
-        location.reload()
-        //this.user = { ...this.user,profilephoto };
-      }
-    });
+
+
+  afficherPublication(image){
+
+this.p2=  this.profilephotoBase64 = this.formatFileSrc(image.profilephoto)
+    swal({
+      title: image.valueOf().collaborateur.email,
+      text:  image.valueOf().publicationText,
+      imageUrl: this.p2,
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+      width:700,
+
+      animation: false
+
+    })
+
+  /*  swal({
+      title: image.valueOf().collaborateur.email,
+      text: image.valueOf().publicationText,
+      imageUrl:  this.p2,
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+      animation: true
+    })*/
   }
+
 }

@@ -10,7 +10,7 @@
   <title>Hr Access</title>
 
   <link href="assets/css/vendor/all.css" rel="stylesheet">
- <link href="assets/css/app/app.css" rel="stylesheet">
+  <link href="assets/css/app/app.css" rel="stylesheet">
 
   <!-- If you don't need support for Internet Explorer <= 8 you can safely remove these -->
   <!--[if lt IE 9]>
@@ -39,8 +39,8 @@
       <div class="split-vertical">
         <div class="sidebar-block tabbable tabs-icons">
           <ul class="nav nav-tabs">
-            <li ><a href="#sidebar-tabs-menu" data-toggle="tab"><i class="fa fa-bars"></i></a></li>
-            <li><a href="#sidebar-tabs-2" data-toggle="tab"><i class="fa fa-bar-chart-o"></i></a></li>
+            <li ><i class="fa fa-bars"></i></li>
+            <li><i class="fa fa-bar-chart-o"></i></li>
           </ul>
         </div>
         <div class="split-vertical-body">
@@ -51,9 +51,9 @@
                 <div data-scrollable>
 
                   <ul class="sidebar-menu sm-icons-right sm-icons-block">
-                    <li class="active"><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-                    <li><a href="www.gmail.fr"><i class="fa fa-envelope"></i> <span>Email</span></a></li>
-                    <li><a href="chat.html"><i class="fa fa-comments"></i> <span>Chat</span></a></li>
+                    <li class="active"><a [routerLink]="['/admin']"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+                    <li><a [routerLink]="['/messagerie']"><i class="fa fa-comments"></i> <span>Chat</span></a></li>
+                    <li><a (click)="onLogout()" ><i class="fa fa-comments"></i> <span>Logout</span></a></li>
                   </ul>
 
                   <h4 class="category">Consulter</h4>
@@ -61,8 +61,9 @@
                     <li class="hasSubmenu text-multiple">
 
                       <ul id="components">
-                        <li><a (click)="publicationParJaime()"><i class="fa fa-circle-o"></i> <span>Overview</span></a></li>
-
+                        <li><a [routerLink]="['/nbLikes']"><i class="fa fa-circle-o"></i> <span>Apercu Mention j'aime</span></a></li>
+                        <li><a [routerLink]="['/publicationsSignale']"><i class="fa fa-circle-o"></i> <span>Publications Signalées</span></a></li>
+                        <li><a [routerLink]="['/admin']"><i class="fa fa-circle-o"></i> <span>Utilisateurs les plus actifs</span></a></li>
                       </ul>
                     </li>
 
@@ -82,28 +83,51 @@
 
     <div class="st-content" id="content">
 
-          <h2 class="page-section-heading">Tables &amp; lists</h2>
+      <h2 class="page-section-heading">Dashboard</h2>
 
-          <div class="row" data-toggle="isotope">
+      <div class="row" data-toggle="isotope">
 
-
-            <app-tableau-admin></app-tableau-admin>
-
+<span class="col-xs-12 col-md-8 col-lg-4 item" style="margin-left: 50px">
+        <app-tableau-admin ></app-tableau-admin>
+</span>
+        <div class="col-xs-12 col-md-8 col-lg-3 item">
+          <app-likes></app-likes>
+        </div>
 
       </div>
 
+   <!--   <div style="display: block">
+        <canvas baseChart
+                [datasets]="radarChartData"
+                [labels]="radarChartLabels"
+                [chartType]="radarChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>-->
 
+
+      <div class="col-md-6">
+        <canvas baseChart
+                [data]="pieChartData"
+                [labels]="pieChartLabels"
+                [chartType]="pieChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+      <div class="col-md-12 text-center" style="margin-top: 10px;height: 50%">
+        <button (click)="randomizeType()" style="display: inline-block">Toggle</button>
+      </div>
     </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   </div>
 
 </div>
 
-<script src="assets/assets/js/vendor/all.js"></script>
+<script src="assets/js/vendor/all.js"></script>
 
 <script src="assets/js/app/app.js"></script>
-
+<script src="node_modules/chart.js/src/chart.js"></script>
 </body>
 
 </html>

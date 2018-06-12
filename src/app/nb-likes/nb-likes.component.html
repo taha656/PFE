@@ -40,8 +40,8 @@
       <div class="split-vertical">
         <div class="sidebar-block tabbable tabs-icons">
           <ul class="nav nav-tabs">
-            <li ><a href="#sidebar-tabs-menu" data-toggle="tab"><i class="fa fa-bars"></i></a></li>
-            <li><a href="#sidebar-tabs-2" data-toggle="tab"><i class="fa fa-bar-chart-o"></i></a></li>
+            <li ><a data-toggle="tab"><i class="fa fa-bars"></i></a></li>
+            <li><a  data-toggle="tab"><i class="fa fa-bar-chart-o"></i></a></li>
           </ul>
         </div>
         <div class="split-vertical-body">
@@ -52,9 +52,8 @@
                 <div data-scrollable>
 
                   <ul class="sidebar-menu sm-icons-right sm-icons-block">
-                    <li class="active"><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-                    <li><a href="www.gmail.fr"><i class="fa fa-envelope"></i> <span>Email</span></a></li>
-                    <li><a href="chat.html"><i class="fa fa-comments"></i> <span>Chat</span></a></li>
+                    <li class="active"><a [routerLink]="['/admin']"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+                    <li><a [routerLink]="['/messagerie']"><i class="fa fa-comments"></i> <span>Chat</span></a></li>
                   </ul>
 
                   <h4 class="category">Consulter</h4>
@@ -62,8 +61,9 @@
                     <li class="hasSubmenu text-multiple">
 
                       <ul id="components">
-                        <li><a (click)="publicationParJaime()"><i class="fa fa-circle-o"></i> <span>Apercu Mention j'aime</span></a></li>
-
+                        <li><a [routerLink]="['/nbLikes']"><i class="fa fa-circle-o"></i> <span>Apercu Mention j'aime</span></a></li>
+                        <li><a [routerLink]="['/publicationsSignale']"><i class="fa fa-circle-o"></i> <span>Publications Signalées</span></a></li>
+                        <li><a [routerLink]="['/admin']"><i class="fa fa-circle-o"></i> <span>Utilisateurs les plus actifs</span></a></li>
                       </ul>
                     </li>
 
@@ -87,48 +87,7 @@
         ici debut likes
 
 
-        <div class="st-content" id="content">
-
-          <h2 class="page-section-heading">Tables &amp; lists</h2>
-          <div class="row" data-toggle="isotope">
-            &nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <div class="col-xs-12 col-md-8 col-lg-6   item">
-              <!-- Leaderboard -->
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4 class="panel-title">Les publications qui ont le plus de likes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-                    total</h4>
-
-                </div>
-
-                <table class="table table-leaderboard margin-none ">
-                  <tbody>
-
-
-                  <tr *ngFor="let p of listPublication ; let i=index">
-                    <td width="20">{{i+1}}</td>
-                    <td><a (click)="consulterProfil(p.collaborateur.email)"><i class="fa fa-flag text-muted"></i>{{p.collaborateur.email}}</a></td>
-                    <td><i class="fa fa-flag text-muted"></i>{{p.publicationText}}</td>
-                    <td><span class="pull-right " ><strong>{{p.nbLikes}}</strong></span></td>
-                  </tr>
-
-                  </tbody>
-                </table>
-
-
-              </div>
-              <!-- // Leaderboard -->
-            </div>
-          </div>
-
-
-        </div>
-
+      <app-likes></app-likes>
 
 
 
@@ -143,7 +102,7 @@
 
 
 
-<script src="assets/assets/js/vendor/all.js"></script>
+<script src="assets/js/vendor/all.js"></script>
 
 <script src="assets/js/app/app.js"></script>
 

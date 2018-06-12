@@ -5,6 +5,7 @@ import {CollaborateurService} from "../collaborateur.service";
 import {CollaborateurModel} from "../Model/CollaborateurModel";
 import {NavbarComponent} from "../navbar/navbar.component";
 import {ModifierColDeuxComponent} from "../modifier-col-deux/modifier-col-deux.component";
+import {PublicationComponent} from "../publication/publication.component";
 @Component({
   selector: 'app-edit-profil',
   templateUrl: './edit-profil.component.html',
@@ -13,30 +14,38 @@ import {ModifierColDeuxComponent} from "../modifier-col-deux/modifier-col-deux.c
 export class EditProfilComponent implements OnInit {
  mode:number=1;
 coll:any;
+t:string;
 
 
-  constructor( private authenticationService:AuthentificaionService, public router:Router, private collaborateurService:CollaborateurService, public navbarComponent:NavbarComponent) { }
+  constructor( public authenticationService:AuthentificaionService, private router:Router, private collaborateurService:CollaborateurService, public navbarComponent:NavbarComponent) {
+
+
+  }
 
   ngOnInit() {
-this.GetCollaborateur();
+    this.GetCollaborateur();
+
 
   }
   formatFileSrc = file => `data:${file.mimeType};base64,${file.data}`;
 
   GetCollaborateur(){
     this.authenticationService.getCollaborateur().subscribe((data:any) =>{ this.coll = data;
-      console.log(data);
-      //  console.log(window.alert(this.coll.id));
-      this.authenticationService.SaveIdCourant(this.coll.id);
-//console.log(this.authentificationComponent.username);
+
+
     }, err=>{
 
-      console.log(err);
+
     });
   }
 
   logout(){
     this.navbarComponent.onLogout();
+  }
+
+  publcation(){
+    this.router.navigateByUrl('/publication');
+  //  window.location.reload();
   }
 
 

@@ -1,0 +1,14 @@
+
+.image-upload > input
+{
+  display: none;
+}
+.img-circle {
+  border-radius: 50%;
+
+}
+.pos{
+  top: 68%;
+  left: 28%;
+  position: absolute;
+}

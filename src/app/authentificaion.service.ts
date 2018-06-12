@@ -164,13 +164,13 @@ isAdmin(){
   }
 
   testConfirmationEmail(codeGenerer){
-  return this.http.get("http://localhost:3036/verificationCode/"+codeGenerer+"/"+this.GetId());
+  return this.http.get("http://localhost:3036/verificationCode/"+codeGenerer+"/"+this.getUserOublie());
   }
 
   NouveauMotDePasse(collaborateur){
    if(collaborateur.valueOf().password==collaborateur.valueOf().confirmationMotDePasse)
-    return this.http.post("http://localhost:3036/nouveauMotDePasse/"+this.GetId(),collaborateur);
-   else  console.log(window.alert("le code de generation n'est pas correcte "));
+    return this.http.post("http://localhost:3036/nouveauMotDePasse/"+this.getUserOublie(),collaborateur);
+   else  console.log(window.alert("les mots de passe ne correspondent pas !  "));
   }
 
   logout(){

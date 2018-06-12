@@ -1,0 +1,150 @@
+<app-template-admintop></app-template-admintop>
+<!DOCTYPE html>
+<html class="st-layout ls-top-navbar ls-bottom-footer show-sidebar sidebar-l2" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Hr Access</title>
+
+  <link href="assets/css/vendor/all.css" rel="stylesheet">
+  <link href="assets/css/app/app.css" rel="stylesheet">
+
+  <!-- If you don't need support for Internet Explorer <= 8 you can safely remove these -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body>
+
+<!-- Wrapper required for sidebar transitions -->
+<div class="st-container">
+
+  <!-- Fixed navbar -->
+  <app-template-admintop></app-template-admintop>
+
+  <script id="chat-window-template" type="text/x-handlebars-template">
+
+
+  </script>
+
+  <div class="st-pusher">
+
+    <div class="sidebar left sidebar-size-2 sidebar-offset-0 sidebar-skin-blue sidebar-visible-desktop" id=sidebar-menu >
+      <div class="split-vertical">
+        <div class="sidebar-block tabbable tabs-icons">
+          <ul class="nav nav-tabs">
+            <li ><a  data-toggle="tab"><i class="fa fa-bars"></i></a></li>
+            <li><a  data-toggle="tab"><i class="fa fa-bar-chart-o"></i></a></li>
+          </ul>
+        </div>
+        <div class="split-vertical-body">
+          <div class="split-vertical-cell">
+            <div class="tab-content">
+
+              <div class="tab-pane active" id="sidebar-tabs-menu">
+                <div data-scrollable>
+
+                  <ul class="sidebar-menu sm-icons-right sm-icons-block">
+                    <li class="active"><a [routerLink]="['/admin']"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+                    <li><a [routerLink]="['/messagerie']"><i class="fa fa-comments"></i> <span>Chat</span></a></li>
+                  </ul>
+
+                  <h4 class="category">Consulter</h4>
+                  <ul class="sidebar-menu sm-bordered sm-active-item-bg">
+                    <li class="hasSubmenu text-multiple">
+
+                      <ul id="components">
+                        <li><a [routerLink]="['/nbLikes']"><i class="fa fa-circle-o"></i> <span>Apercu Mention j'aime</span></a></li>
+                        <li><a [routerLink]="['/publicationsSignale']"><i class="fa fa-circle-o"></i> <span>Publications Signalées</span></a></li>
+                        <li><a [routerLink]="['/admin']"><i class="fa fa-circle-o"></i> <span>Utilisateurs les plus actifs</span></a></li>
+
+                      </ul>
+                    </li>
+
+                  </ul>
+
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+    ici debut likes
+
+
+    <div class="st-content" id="content">
+
+      <h2 class="page-section-heading">Publications signalées</h2>
+      <div class="row" data-toggle="isotope">
+        &nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <div class="col-xs-12 col-md-10 col-lg-10   item">
+          <!-- Leaderboard -->
+          <div class="panel panel-default" style=" box-shadow: 5px 5px 2px grey; margin-left: 200px">
+            <div class="panel-heading" style="background: #26a69a ">
+              <h4 class="panel-title">Ces publications ont été signalées &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </h4>
+
+            </div>
+
+            <table class="table table-leaderboard margin-none ">
+              <tbody>
+
+
+              <tr *ngFor="let p of listPublication ; let i=index">
+                <td width="20"><h5>{{i+1}}</h5></td>
+                <td><a (click)="consulterProfil(p.collaborateur.email)"><h5><i class="fa fa-flag text-muted"></i>&nbsp;&nbsp;{{p.collaborateur.email}}</h5></a></td>
+                <td><h5><i class="fa fa-flag text-muted"></i> <a (click)="this.formUpload2.afficherPublication(p)">{{p.publicationText}}</a></h5></td>
+               <td> <button  (click)="deletePublication(p.id)" class="btn btn-primary btn-xs pull-right " >Supprimer</button></td>
+                <td> <button  (click)="ignorerPublication(p.id)" class="btn btn-primary btn-xs pull-right " >Ignorer</button></td>
+              </tr>
+
+              </tbody>
+            </table>
+
+
+          </div>
+          <!-- // Leaderboard -->
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+
+
+    ici fin likes
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+  </div>
+
+
+</div>
+
+
+
+<script src="assets/js/vendor/all.js"></script>
+
+<script src="assets/js/app/app.js"></script>
+
+</body>
+
+</html>

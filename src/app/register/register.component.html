@@ -70,25 +70,25 @@
 
                       <div >
                         <label for="exampleInputFirstName">First name</label>
-                        <input type="text" [(ngModel)]="collaborateur.nom" class="form-control" id="exampleInputFirstName" placeholder="Your first name" name="nom">
+                        <input type="text" required [(ngModel)]="collaborateur.nom" class="form-control" id="exampleInputFirstName" placeholder="Your first name" name="nom">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div >
                         <label for="exampleInputLastName">Last name</label>
-                        <input type="text" [(ngModel)]="collaborateur.prenom" class="form-control" id="exampleInputLastName" placeholder="Your last name" name="prenom">
+                        <input type="text" required [(ngModel)]="collaborateur.prenom" class="form-control" id="exampleInputLastName" placeholder="Your last name" name="prenom">
                       </div>
                     </div>
                   </div>
                   <div >
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="text" class="form-control" [(ngModel)]="collaborateur.email" id="exampleInputEmail1" placeholder="Enter email" name="email">
+                    <input type="text" required class="form-control" [(ngModel)]="collaborateur.email" id="exampleInputEmail1" placeholder="Enter email" name="email">
                   </div>
                   <div  >
 
                     <label for="exampleInputPassword1">Password</label>
 
-                    <input type="text"   class="form-control" [(ngModel)]="collaborateur.password" id="exampleInputPassword1" placeholder="Password" name="password">
+                    <input type="password"  required class="form-control" [(ngModel)]="collaborateur.password" id="exampleInputPassword1" placeholder="Password" name="password">
                   </div>
 
                 </form>

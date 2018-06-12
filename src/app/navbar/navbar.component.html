@@ -1,115 +1,73 @@
-<nav class="navbar navbar-subnav navbar-static-top" role="navigation">
 
-  <div class="container">
+<nav class="navbar navbar-subnav navbar-static-top navbar-fixed-top" style="background: #26a69a; box-shadow: 5px 5px 2px grey" role="navigation">
 
 
-    <div class="collapse navbar-collapse" id="subnav">
 
-      <ul class="nav navbar-nav hidden-xs navbar-right">
-        <li><a (click)="onLogout()">Logout  <i class="fa fa-fw icon-unlock-fill"></i></a></li>
-        <li class="dropdown notifications updates hidden-xs hidden-sm">
+
+
+
+      <ul class="nav navbar-nav hidden-xs navbar-right" style="margin-right: 200px">
+
+        <li class="dropdown notifications updates " (click)="resetNotifications()">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-bell-o"></i>
             <span class="badge badge-primary">{{getCount()}}</span>
           </a>
-          <ul class="dropdown-menu" role="notification">
+          <ul class="dropdown-menu"  role="notification">
             <li class="dropdown-header">Notifications</li>
             <table>
               <tr *ngFor="let p of notifications   ">
 
-              <li class="media">
-                <div class="pull-right">
-                  <span class="label label-success">New</span>
-                </div>
-                <div class="media-left">
-                  <img src="assets/images/people/50/guy-2.jpg" alt="people" class="img-circle" width="30">
-                </div>
-                <div class="media-body">
-                  <a href="#">{{p.collaborateur.email}}</a>{{p.details}}
-                  <br/>
-                  <span class="text-caption text-muted">{{p.date |date:'MM/dd/yyyy  h:mma'}}</span>
-                </div>
-              </li>
+                <li class="media">
+                  <div class="pull-right">
+                    <span class="label label-success">New</span>
+                  </div>
+                  <div class="media-left">
+                    <form-upload4 [user]="p.collaborateur"></form-upload4>
+                  </div>
+                  <div class="media-body">
+                    <a>{{p.collaborateur.email}}</a>{{p.details}}
+                    <br/>
+                    <span class="text-caption text-muted">{{p.date |date:'MM/dd/yyyy  h:mma'}}</span>
+                  </div>
+                </li>
               </tr>
             </table>
 
 
           </ul>
         </li>
+        <li><a (click)="onLogout()">Logout  <i class="fa fa-fw icon-unlock-fill"></i></a></li>
       </ul>
-    </div>
 
 
-  </div>
 </nav>
 
+<div style="margin-top: 0px"></div>
+
 <div class="cover profile">
+
   <div class="wrapper">
     <div class="image">
-      <img src="assets/images/profile-cover.jpg" alt="people" />
+
+      <img src="assets/images/profile-cover.jpg" style="margin-left: 0px " alt="people" />
     </div>
-    <ul class="friends">
-      <li>
-        <a href="#">
-          <img src="assets/images/people/110/guy-6.jpg" alt="people" class="img-responsive">
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <img src="assets/images/people/110/woman-3.jpg" alt="people" class="img-responsive">
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <img src="assets/images/people/110/guy-2.jpg" alt="people" class="img-responsive">
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <img src="assets/images/people/110/guy-9.jpg" alt="people" class="img-responsive">
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <img src="assets/images/people/110/woman-9.jpg" alt="people" class="img-responsive">
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <img src="assets/images/people/110/guy-4.jpg" alt="people" class="img-responsive">
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <img src="assets/images/people/110/guy-1.jpg" alt="people" class="img-responsive">
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <img src="assets/images/people/110/woman-4.jpg" alt="people" class="img-responsive">
-        </a>
-      </li>
-      <li><a href="#" class="group"><i class="fa fa-group"></i></a></li>
-    </ul>
+
   </div>
-<div class="cover-info">
+
+<div class="cover-info" style="margin-left: 0px">
   <div class="avatar">
-    <!--{{im}}-->
-    <!--<img src="data:image/jpg;{{im}}" alt="people" />-->
-    <!--<img src="{{im}}" alt="people" />-->
-    <div class="form-group" style="width: 100px ;height: 100px;">
+
+    <div class="form-group" style="width: 50px ;height: 50px " >
       <form-upload [user]="user"></form-upload>
     </div>
-    <p>{{user.email}}</p>
-    <!--  <strong><h6> {{im.filename}}</h6>   </strong>-->
-  </div>
-  <!-- <table>
-     <div class="name">NOM:
+ {{coll}}
 
-       <tr *ngFor="let c1 of coll"  >  <td>{{c1.email}}</td></tr></div></table>-->
+  </div>
+
   <ul class="cover-nav">
 
-    <li><a href="user-public-timeline.html"><i class="fa fa-fw icon-ship-wheel"></i> Timeline</a></li>
+    <li><a [routerLink]="['/publication']"><i class="fa fa-fw icon-ship-wheel"></i> Timeline</a></li>
     <li><a (click)="onEditProfil()"><i class="fa fa-fw icon-user-1"></i> About</a></li>
     <li><a (click)="inbox()"><i class="fa fa-fw fa-users"></i> Chat</a></li>
 
@@ -117,3 +75,5 @@
   </ul>
 </div>
 </div>
+
+

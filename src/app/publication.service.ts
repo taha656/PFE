@@ -17,6 +17,15 @@ private collaborateur:any;
     return this.http.get("http://localhost:3036/getuser",this.authentificationComponent.email)
       .map(resp=>resp.json());
   }
+
+  getPublicationSignaler(){
+    return this.http.get("http://localhost:3036/publication/signale")
+      .map(resp=>resp.json());
+  }
+  ignorerPublication(idPublication){
+    return this.http.get("http://localhost:3036/publication/ignoresignal/"+idPublication);
+  }
+
   sharePublicationService(publication){
     return this.http.post("http://localhost:3036/publication/share/"+this.authentificationService.getUser(),publication)
       .map(resp=>resp);
@@ -50,6 +59,20 @@ private collaborateur:any;
   }
   getTotalPublication(){
     return this.http.get("http://localhost:3036/publication/totalPublications") .map(resp=>resp.json());
+  }
+
+  getTotalLike(){
+    return this.http.get("http://localhost:3036/publication/totalLike") .map(resp=>resp.json());
+  }
+
+
+  getTotalShare(){
+    return this.http.get("http://localhost:3036/publication/totalShare") .map(resp=>resp.json());
+  }
+
+
+  envoieSignal(idDeletePublication){
+    return this.http.get("http://localhost:3036/publication/signal/"+idDeletePublication);
   }
 
   getPublicationLike(){

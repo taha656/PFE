@@ -5,14 +5,14 @@ import {EditProfilComponent} from "../edit-profil/edit-profil.component";
 import {ModifierColComponent} from "../modifier-col/modifier-col.component";
 import {AuthentificaionService} from "../authentificaion.service";
 import {NavbarComponent} from "../navbar/navbar.component";
-
+import swal from 'sweetalert2'
 @Component({
   selector: 'app-modifier-col-deux',
   templateUrl: './modifier-col-deux.component.html',
   styleUrls: ['./modifier-col-deux.component.css']
 })
 export class ModifierColDeuxComponent implements OnInit {
- coll:CollaborateurModel= new CollaborateurModel();
+ coll:any;
 
 
   constructor(public navbarComponent:NavbarComponent,  private authenticationService:AuthentificaionService, private collaborateurService:CollaborateurService,private editProfilComponent:EditProfilComponent,private modifierColComponent:ModifierColComponent  ) { }
@@ -27,8 +27,16 @@ this.GetCollaborateur();
     this.collaborateurService.EditCol(coll).subscribe((data:any) =>{ this.coll = data;
       console.log(data);
       //  console.log(window.alert(this.authenticationService.GetIdCourant()));
-      this.modifierColComponent.GetCollaborateur();
+
       this.editProfilComponent.mode=1;
+      swal({
+
+        type: 'success',
+        title: 'Votre profil a bien été modifier ! ',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      window.location.reload();
     }, err=>{
 
       console.log(err);

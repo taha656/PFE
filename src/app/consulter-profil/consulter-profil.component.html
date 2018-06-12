@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="st-layout ls-top-navbar ls-bottom-footer show-sidebar sidebar-l2" lang="en">
+<html class="st-layout ls-top-navbar ls-bottom-footer show-sidebar sidebar-l2"  lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -31,73 +31,26 @@
   <!-- Fixed navbar -->
 
   <!-- Sidebar component with st-effect-1 (set on the toggle button within the navbar) -->
-  <div class=" sidebar left sidebar-size-2 sidebar-offset-0 sidebar-visible-desktop sidebar-visible-mobile sidebar-skin-dark" id="sidebar-menu">
+  <div class=" sidebar left sidebar-size-2 sidebar-offset-0 sidebar-visible-desktop sidebar-visible-mobile sidebar-skin-dark" style="background: #2b3f4f;" id="sidebar-menu">
     <div data-scrollable>
       <div class=" sidebar-block">
         <div class="profile">
-          <img src="assets/images/people/110/guy-5.jpg" alt="people" class="img-circle" />
-          <h4>Bill S.</h4>
+
+
         </div>
       </div>
       <h4 class="category">Account</h4>
       <ul class="sidebar-menu ">
-        <li class="active"><a (click)="supprimerCompte()"><i class="icon-user-1"></i> <span>SUPPRIMER COMPTE</span></a></li>
 
+        <li class="active"><a [routerLink]="['/admin']"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+        <li><a [routerLink]="['/messagerie']" ><i class="icon-comment-fill-1"></i> <span>Messages</span></a></li>
+        <li><a (click)="logout()"><i class="icon-unlock-fill"></i> <span>Logout</span></a></li>
       </ul>
     </div>
   </div>
 
-  <!-- Sidebar component with st-effect-1 (set on the toggle button within the navbar) -->
 
-  <script id="chat-window-template" type="text/x-handlebars-template">
 
-    <div class="panel panel-default ">
-      <div class="panel-heading" data-toggle="chat-collapse" data-target="#chat-bill">
-        <a href="#" class="close"><i class="fa fa-times"></i></a>
-        <a href="#">
-            <span class="pull-left">
-                    <img src="{{ user_image }}" width="40">
-                </span>
-          <span class="contact-name">{{user}}</span>
-        </a>
-      </div>
-      <div class="panel-body" id="chat-bill">
-        <div class="media">
-          <div class="media-left">
-            <img src="{{ user_image }}" width="25" class="img-circle" alt="people" />
-          </div>
-          <div class="media-body">
-            <span class="message">Feeling Groovy?</span>
-          </div>
-        </div>
-        <div class="media">
-          <div class="media-left">
-            <img src="{{ user_image }}" width="25" class="img-circle" alt="people" />
-          </div>
-          <div class="media-body">
-            <span class="message">Yep.</span>
-          </div>
-        </div>
-        <div class="media">
-          <div class="media-left">
-            <img src="{{ user_image }}" width="25" class="img-circle" alt="people" />
-          </div>
-          <div class="media-body">
-            <span class="message">This chat window looks amazing.</span>
-          </div>
-        </div>
-        <div class="media">
-          <div class="media-left">
-            <img src="{{ user_image }}" width="25" class="img-circle" alt="people" />
-          </div>
-          <div class="media-body">
-            <span class="message">Thanks!</span>
-          </div>
-        </div>
-      </div>
-      <input type="text" class="form-control" placeholder="Type message..." />
-    </div>
-  </script>
 
   <div class="chat-window-container "></div>
 
@@ -116,7 +69,7 @@
       <!-- extra div for emulating position:fixed of the menu -->
       <div class="st-content-inner ">
 
-        <nav class="navbar navbar-subnav navbar-static-top" role="navigation">
+        <nav class="navbar navbar-subnav navbar-static-top" style="background: #2b3f4f" role="navigation">
           <div class="container-fluid ">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header ">
@@ -129,181 +82,118 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse " id="subnav">
               <ul class="nav navbar-nav ">
-                <li><a href="user-private-timeline.html"><i class="fa fa-fw icon-ship-wheel"></i> My Timeline</a></li>
+                <li><a (click)="publcation()">Fil d'actualité</a></li>
               </ul>
               <ul class="nav navbar-nav  navbar-right ">
-                <li><a href="login.html"> Logout<i class="fa fa-fw fa-sign-out"></i></a></li>
+                <li><a (click)="logout()"> Logout<i class="fa fa-fw fa-sign-out"></i></a></li>
               </ul>
             </div>
             <!-- /.navbar-collapse -->
 
           </div>
         </nav>
+        <li><a (click)="supprimerCompte()"><h3>Supprimer le compte</h3></a></li>
 
         <div class="container-fluid">
 
-          <div class="tabbable">
-            <ul class="nav nav-tabs">
-              <li class="active"><a href="#home" data-toggle="tab"><i class="fa fa-fw fa-picture-o"></i> Photos</a></li>
-              <li class=""><a href="#profile" data-toggle="tab"><i class="fa fa-fw fa-folder"></i> Albums</a></li>
-            </ul>
-            <div class="tab-content">
-              <div class="tab-pane fade active in" id="home">
-                <img src="assets/images/place1.jpg" alt="image" />
-                <img src="assets/images/place2.jpg" alt="image" />
-                <img src="assets/images/food1.jpg" alt="image" />
-              </div>
-              <div class="tab-pane fade" id="profile">
-                <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth
-                  letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown.
-                  Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
-              </div>
-              <div class="tab-pane fade" id="dropdown1">
-                <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy
-                  salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably
-                  haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
-              </div>
-              <div class="tab-pane fade" id="dropdown2">
-                <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo
-                  park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial
-                  keffiyeh echo park vegan.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="row"  >
-            <div class="col-md-8  col-md-offset-2" *ngIf="mode==1">
-
-
-            </div>
-
-          </div>
-
-          <div class="row"  >
-
-
-
-            <div class="col-md-8  col-md-offset-2" *ngIf="mode==2">
-
-            </div>
-
-          </div>
 
 
 
 
 
 
-          <div class="panel panel-default">
+
+
+          <div class="panel panel-default" style="margin-left: 350px;  ">
             <table>
 
               <tr *ngFor="let c of ProfilpagePublication | paginate :{itemsPerPage:5,currentPage:p} ">
-                <div let d="c.commentaires.length">
-                  <div class="col-xs-12 col-md-8 col-lg-8 item">
-                    <div class="timeline-block">
-                      <div class="panel panel-default">
 
-                        <div class="panel-heading">
+                <div class="col-xs-12 col-md-8 col-lg-8 item" >
+                  <div class="timeline-block" style="box-shadow: 5px 5px 2px grey; background: #2b3f4f">
+                    <div class="panel panel-default">
+
+                      <div class="panel-heading">
+                        <div class="media">
+                          <div class="media-left">
+                            <div class="form-group" style="width: 20px ;height: 20px;">
+                              <form-upload4 [user]="c.collaborateur"></form-upload4>
+                            </div>
+                          </div>
+                          <div class="media-body">
+                            <a [routerLink]="['/consulter2',c.collaborateur.email]"style="color: #0a0a0a" >{{c.collaborateur.email}}</a>
+
+                            <span>{{c.datePublication |date:'MM/dd/yyyy  h:mma'}} </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="panel-body">
+                        <div class="boxed">
+                          <span class="h4 margin-none">Post</span>
+
                           <div class="media">
                             <div class="media-left">
-                              <a href="">
-                                <img src="assets/images/people/50/woman-5.jpg" class="media-object">
+                              <a (click)="this.formUpload2.afficherPublication(c)">
+                                <div class="form-group" style="width: 100px ;height: 100px;">
+                                  <form-upload2 [user]="c"></form-upload2>
+                                </div>
                               </a>
                             </div>
-                            <div class="media-body">
-                              <a href="#" class="pull-right text-muted"><i class="icon-reply-all-fill fa fa-2x "></i></a>
+                            <div class="media-body h4 ">
+                              <p> <td>{{c.publicationText}}</td>
 
-                              <a href="" style="color: #0a0a0a">{{c.collaborateur.email}}</a>
 
-                              <span>{{c.datePublication |date:'MM/dd/yyyy  h:mma'}} </span>
-                            </div>
+
+                              </p> </div>
                           </div>
+                          <ul class="icon-list">
+
+                          </ul>
                         </div>
 
-                        <div class="panel-body">
-                          <div class="boxed">
-                            <a href="#" class="h4 margin-none">Vegetarian Pizza</a>
-                            <div>
-                              <span class="fa fa-star text-primary"></span>
-                              <span class="fa fa-star text-primary"></span>
-                              <span class="fa fa-star text-primary"></span>
-                              <span class="fa fa-star text-primary"></span>
-                              <span class="fa fa-star-o"></span>
-                            </div>
+                      </div>
 
-                            <div class="media">
+
+                      <table>
+
+                        <tr *ngFor="let c1 of c.commentaires; let  i=index">
+                          <ul class="comments">
+
+
+                            <li class="media">
                               <div class="media-left">
-                                <a href="#">
-                                  <img src="assets/images/food1.jpg" alt="" width="80" class="media-object">
-                                </a>
+
+                                  <form-upload4 [user]="c1.collaborateur"></form-upload4>
+
                               </div>
                               <div class="media-body">
-                                <p> <td>{{c.publicationText}}</td>
+
+                                <a href="" class="comment-author pull-left">{{c.commentaires[i].collaborateur?.email}}</a>
+
+                                <span >{{c.commentaires[i].textCom}}</span>
+
+                                <div class="comment-date" type="date">{{c.commentaires[i].dateCommentaire  |date:'MM/dd/yyyy  h:mma'}}</div>
+                              </div>
+
+                            </li>
 
 
+                          </ul>
 
-                                </p> </div>
-                            </div>
-                            <ul class="icon-list">
-                              <li><i class="fa fa-star fa-fw"></i> 4.8</li>
-                              <li><i class="fa fa-clock-o fa-fw"></i> 20 min</li>
-                              <li><i class="fa fa-graduation-cap fa-fw"></i> Beginner</li>
-                            </ul>
-                          </div>
-
-                        </div>
-
-                        <div class="view-all-comments">
-                          <a href="#">
-                            <i class="fa fa-comments-o"></i> View all
-                          </a>
-                          <span>10 comments</span>
-
-                        </div>
-                        <table>
-
-                          <tr *ngFor="let c1 of c.commentaires; let  i=index">
-                            <ul class="comments">
-
-                              &lt;!&ndash; ici debut  des commentaires &ndash;&gt;
-                              <li class="media">
-                                <div class="media-left">
-                                  <a href="">
-                                    <img src="assets/images/people/50/guy-5.jpg" class="media-object">
-                                  </a>
-                                </div>
-                                <div class="media-body">
-                                  <div class="pull-right dropdown" data-show-hover="li">
-                                    <a href="#" data-toggle="dropdown" class="toggle-button">
-                                      <i class="fa fa-pencil"></i>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                      <li><a href="#">Edit</a></li>
-                                      <li><a href="#">Delete</a></li>
-                                    </ul>
-                                  </div>
-                                  <a href="" class="comment-author pull-left">{{c.commentaires[i].collaborateur?.email}}</a>
-
-                                  <span >{{c.commentaires[i].textCom}}</span>
-
-                                  <div class="comment-date" type="date">{{c.commentaires[i].dateCommentaire  |date:'MM/dd/yyyy  h:mma'}}</div>
-                                </div>
-
-                              </li>
-
-
-                            </ul>
-
-                          </tr>
-                        </table>
-                      </div>
+                        </tr>
+                      </table>
                     </div>
                   </div>
                 </div>
+
               </tr>
 
             </table>
             <pagination-controls (pageChange)="p =$event"></pagination-controls>
+
+
+            <!-- /st-content-inner -->
 
           </div>
 
